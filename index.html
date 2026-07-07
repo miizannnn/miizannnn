@@ -33,20 +33,38 @@
         <p>Automotive Photographer & Filmmaker</p>
     </div>
 
-</section>
-
-
 <section id="work">
 
-    <h2>SELECTED WORKS</h2>
+<h2>SELECTED WORKS</h2>
 
-    <div class="gallery">
+<div class="gallery">
 
-       <img src="https://picsum.photos/800/1200">
-       <img src="https://picsum.photos/800/1200">
-        <img src="https://picsum.photos/800/1200">
-
+    <div class="project" onclick="openGallery('porsche')">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+        <div class="project-title">
+            Porsche 911 GT3 RS
+        </div>
     </div>
+
+
+    <div class="project" onclick="openGallery('bmw')">
+        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
+        <div class="project-title">
+            BMW Automotive Shoot
+        </div>
+    </div>
+
+
+</div>
+
+
+<div id="lightbox">
+
+    <span onclick="closeGallery()">×</span>
+
+    <div id="gallery-images"></div>
+
+</div>
 
 </section>
 
