@@ -1,66 +1,81 @@
-const galleries = {
+```javascript id="xq4m8n"
+// =========================
+// SMOOTH ACTIVE NAVIGATION
+// =========================
 
-    porsche:[
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
-        "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
-        "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a"
+window.addEventListener("scroll", () => {
 
-    ],
+    let current = "";
 
-    bmw:[
+    sections.forEach(section => {
 
-        "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d",
-        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+        const sectionTop = section.offsetTop - 150;
 
-    ],
-
-    track:[
-
-        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7",
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-
-    ]
-
-};
-
-
-
-function openGallery(name){
-
-    let gallery = document.getElementById("gallery-images");
-
-    gallery.innerHTML = "";
-
-    galleries[name].forEach(image => {
-
-        gallery.innerHTML += `
-            <img src="${image}">
-        `;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
 
     });
 
-    document.getElementById("lightbox").style.display = "block";
+    navLinks.forEach(link => {
 
-}
+        link.classList.remove("active");
 
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
 
-
-function closeGallery(){
-
-    document.getElementById("lightbox").style.display = "none";
-
-}
-
-
-
-/* close when clicking outside */
-
-document.getElementById("lightbox").addEventListener("click", function(e){
-
-    if(e.target.id === "lightbox"){
-
-        closeGallery();
-
-    }
+    });
 
 });
+
+
+// =========================
+// FADE-IN ANIMATION
+// =========================
+
+const items = document.querySelectorAll(".item");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+}, {
+    threshold: 0.15
+});
+
+items.forEach(item => observer.observe(item));
+
+
+// =========================
+// OPTIONAL IMAGE PARALLAX
+// =========================
+
+window.addEventListener("mousemove", (e) => {
+
+    const images = document.querySelectorAll(".item img");
+
+    images.forEach(img => {
+
+        const speed = 0.01;
+
+        const x = (window.innerWidth / 2 - e.pageX) * speed;
+        const y = (window.innerHeight / 2 - e.pageY) * speed;
+
+        img.style.transform = `translate(${x}px, ${y}px)`;
+
+    });
+
+});
+```
