@@ -1,10 +1,11 @@
-```javascript id="xq4m8n"
-// =========================
-// SMOOTH ACTIVE NAVIGATION
-// =========================
+```javascript
+// ==========================
+// ACTIVE NAVIGATION
+// ==========================
 
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+const links = document.querySelectorAll("nav a");
+
 
 window.addEventListener("scroll", () => {
 
@@ -12,70 +13,123 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 200;
 
-        if (window.scrollY >= sectionTop) {
+        if(window.scrollY >= sectionTop){
+
             current = section.getAttribute("id");
+
         }
 
     });
 
-    navLinks.forEach(link => {
 
-        link.classList.remove("active");
+    links.forEach(link => {
 
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+        link.style.opacity = "0.6";
+
+
+        if(link.getAttribute("href") === "#" + current){
+
+            link.style.opacity = "1";
+
         }
 
     });
+
 
 });
 
 
-// =========================
-// FADE-IN ANIMATION
-// =========================
 
-const items = document.querySelectorAll(".item");
 
-const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry => {
+// ==========================
+// IMAGE FADE IN
+// ==========================
 
-        if (entry.isIntersecting) {
 
-            entry.target.classList.add("show");
+const images = document.querySelectorAll(".item");
+
+
+const observer = new IntersectionObserver((entries)=>{
+
+
+    entries.forEach(entry=>{
+
+
+        if(entry.isIntersecting){
+
+
+            entry.target.style.opacity = "1";
+
+            entry.target.style.transform = "translateY(0)";
+
 
         }
 
+
     });
 
-}, {
-    threshold: 0.15
+
+},{
+
+
+    threshold:0.2
+
+
 });
 
-items.forEach(item => observer.observe(item));
 
 
-// =========================
-// OPTIONAL IMAGE PARALLAX
-// =========================
+images.forEach(image=>{
 
-window.addEventListener("mousemove", (e) => {
 
-    const images = document.querySelectorAll(".item img");
+    image.style.opacity="0";
 
-    images.forEach(img => {
+    image.style.transform="translateY(40px)";
 
-        const speed = 0.01;
+    image.style.transition="0.8s ease";
 
-        const x = (window.innerWidth / 2 - e.pageX) * speed;
-        const y = (window.innerHeight / 2 - e.pageY) * speed;
 
-        img.style.transform = `translate(${x}px, ${y}px)`;
+    observer.observe(image);
 
-    });
+
+});
+
+
+
+
+
+// ==========================
+// VIDEO HERO LOAD EFFECT
+// ==========================
+
+
+window.addEventListener("load",()=>{
+
+
+    const hero = document.querySelector(".hero-text");
+
+
+    hero.style.opacity="0";
+
+    hero.style.transform="translateY(30px)";
+
+
+    setTimeout(()=>{
+
+
+        hero.style.transition="1s ease";
+
+
+        hero.style.opacity="1";
+
+        hero.style.transform="translateY(0)";
+
+
+    },300);
+
 
 });
 ```
