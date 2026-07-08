@@ -1,147 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIIZANNNN | Automotive Visuals</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
 <body>
 
-<header>
+    <!-- LEFT SIDE -->
 
-    <div class="logo">MIIZANNNN</div>
+    <div class="sidebar">
 
-    <nav>
-        <a href="#work">WORK</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
+        <div class="logo">MIIZANNNN</div>
 
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <video autoplay muted loop playsinline>
-        <source src="assets/hero.mp4" type="video/mp4">
-    </video>
-
-    <div class="overlay"></div>
-<div class="hero-text">
-
-    <h1>MIIZANNNN</h1>
-
-    <p>PORTFOLIO</p>
-
-</div>
-
-</section>
-
-
-
-<!-- WORK -->
-
-<section id="work">
-
-<h2>SELECTED WORKS</h2>
-
-
-<div class="gallery">
-
-
-    <div class="project" onclick="openGallery('porsche')">
-
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-
-        <div class="project-title">
-            Porsche 911 GT3 RS
-        </div>
+        <nav>
+            <a href="#about">ABOUT</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
 
     </div>
 
 
+    <!-- RIGHT SIDE -->
 
-    <div class="project" onclick="openGallery('bmw')">
+    <div class="content">
 
-        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
+        <section id="portfolio">
 
-        <div class="project-title">
-            BMW Automotive Shoot
-        </div>
+            <div class="gallery">
 
-     </div>
+                <div class="project" onclick="openGallery('porsche')">
+
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+
+                    <div class="overlay">
+                        <h2>PORSCHE GT3 RS</h2>
+                    </div>
+
+                </div>
 
 
-    
-        <div class="project" onclick="openGallery('bmw')">
+                <div class="project" onclick="openGallery('bmw')">
 
-        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
 
-        <div class="project-title">
-            test Shoot
-        </div>
+                    <div class="overlay">
+                        <h2>BMW SHOOT</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="project" onclick="openGallery('track')">
+
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7">
+
+                    <div class="overlay">
+                        <h2>TRACKDAY</h2>
+                    </div>
+
+                </div>
+
+
+                <!-- ADD MORE PROJECTS HERE -->
+
+
+            </div>
+
+        </section>
+
+
+        <section id="about">
+
+            <h1>ABOUT</h1>
+
+            <p>
+                Automotive photographer and filmmaker.
+            </p>
+
+        </section>
+
+
+        <section id="contact">
+
+            <h1>CONTACT</h1>
+
+            <p>
+                Instagram: @miizannnn
+            </p>
+
+        </section>
 
     </div>
 
 
-</div>
+    <!-- GALLERY POPUP -->
+
+    <div id="lightbox">
+
+        <span onclick="closeGallery()">×</span>
+
+        <div id="gallery-images"></div>
+
+    </div>
 
 
-
-<!-- IMAGE GALLERY POPUP -->
-
-<div id="lightbox">
-
-    <span onclick="closeGallery()">×</span>
-
-    <div id="gallery-images"></div>
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2>ABOUT</h2>
-
-<p>
-Creating cinematic automotive visuals through photography,
-film and design.
-</p>
-
-</section>
-
-
-
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2>CONTACT</h2>
-
-<p>
-Instagram: @miizannnn
-</p>
-
-</section>
-
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
-</html>
