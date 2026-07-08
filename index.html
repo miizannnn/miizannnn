@@ -1,104 +1,127 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
-    <!-- LEFT SIDE -->
+<div class="container">
 
-    <div class="sidebar">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
 
-        <div class="logo">MIIZANNNN</div>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
 
+        <!-- Navigation -->
         <nav>
-            <a href="#about">ABOUT</a>
-            <a href="#portfolio">PORTFOLIO</a>
-            <a href="#contact">CONTACT</a>
+            <a href="#about">About</a>
+            <a href="#portfolio" class="active">Portfolio</a>
+            <a href="#contact">Contact</a>
         </nav>
 
-    </div>
+    </aside>
 
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT CONTENT -->
+    <main class="content">
 
-    <div class="content">
-
+        <!-- PORTFOLIO -->
         <section id="portfolio">
 
             <div class="gallery">
 
-                <div class="project" onclick="openGallery('porsche')">
-
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-
+                <div class="item">
+                    <img src="images/project1.jpg" alt="">
                     <div class="overlay">
-                        <h2>PORSCHE GT3 RS</h2>
+                        <h3>Project One</h3>
                     </div>
-
                 </div>
 
-
-                <div class="project" onclick="openGallery('bmw')">
-
-                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
-
+                <div class="item">
+                    <img src="images/project2.jpg" alt="">
                     <div class="overlay">
-                        <h2>BMW SHOOT</h2>
+                        <h3>Project Two</h3>
                     </div>
-
                 </div>
 
-
-                <div class="project" onclick="openGallery('track')">
-
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7">
-
+                <div class="item">
+                    <img src="images/project3.jpg" alt="">
                     <div class="overlay">
-                        <h2>TRACKDAY</h2>
+                        <h3>Project Three</h3>
                     </div>
-
                 </div>
 
+                <div class="item">
+                    <img src="images/project4.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Project Four</h3>
+                    </div>
+                </div>
 
-                <!-- ADD MORE PROJECTS HERE -->
+                <div class="item">
+                    <img src="images/project5.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Project Five</h3>
+                    </div>
+                </div>
 
+                <div class="item">
+                    <img src="images/project6.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Project Six</h3>
+                    </div>
+                </div>
 
             </div>
 
         </section>
 
 
-        <section id="about">
+        <!-- ABOUT -->
+        <section id="about" class="page-section">
 
-            <h1>ABOUT</h1>
+            <h1>About</h1>
 
             <p>
-                Automotive photographer and filmmaker.
+                Hi, I'm Your Name.
+                I'm a photographer/designer creating clean and minimal visual work.
+                This portfolio showcases selected projects and collections.
             </p>
 
         </section>
 
 
-        <section id="contact">
+        <!-- CONTACT -->
+        <section id="contact" class="page-section">
 
-            <h1>CONTACT</h1>
+            <h1>Contact</h1>
 
-            <p>
-                Instagram: @miizannnn
-            </p>
+            <p>Email</p>
+            <p>Instagram</p>
+            <p>GitHub</p>
 
         </section>
 
-    </div>
+    </main>
 
+</div>
 
-    <!-- GALLERY POPUP -->
-
-    <div id="lightbox">
-
-        <span onclick="closeGallery()">×</span>
-
-        <div id="gallery-images"></div>
-
-    </div>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
+</html>
+```
