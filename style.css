@@ -250,7 +250,12 @@ nav a:hover{
 
 
 
+/* REMOVE LINK STYLE FROM GALLERY */
 
+.item a{
+    color:white;
+    text-decoration:none;
+}
 
 /* ==========================
    GALLERY
