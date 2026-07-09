@@ -1,8 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,80 +17,53 @@
 
 </head>
 
-
 <body>
-
 
 <!-- LEFT SIDEBAR -->
 
 <aside class="sidebar">
 
     <div class="logo">
-        <img src="images/logo.png">
+        <img src="images/logo.png" alt="Logo">
     </div>
 
-
     <nav>
-
         <a href="#about">About</a>
-
         <a href="#portfolio">Portfolio</a>
-
         <a href="#contact">Contact</a>
-
     </nav>
 
-
 </aside>
-
-
 
 <!-- RIGHT CONTENT -->
 
 <main class="content">
 
-
-
-<!-- ABOUT / VIDEO HERO -->
+<!-- HERO -->
 
 <section id="about" class="hero">
 
+    <video autoplay muted loop playsinline>
 
-<video autoplay muted loop playsinline>
+        <source src="images/background.mp4" type="video/mp4">
 
-<source src="images/background.mp4" type="video/mp4">
+    </video>
 
-</video>
+    <div class="hero-overlay"></div>
 
+    <div class="hero-text">
 
-<div class="hero-overlay"></div>
+        <h1>Your Name</h1>
 
+        <p>Photographer / Designer</p>
 
-<div class="hero-text">
-
-<h1>Your Name</h1>
-
-<p>
-Photographer / Designer
-</p>
-
-</div>
-
-
-
-
+    </div>
 
 </section>
 
-
-
-
-
 <!-- PORTFOLIO -->
 
-
 <section id="portfolio">
-
 
 <div class="gallery">
 
@@ -141,44 +114,39 @@ Photographer / Designer
 
 </div>
 
-</div>
-
-
 </section>
-
-
-
-
 
 <!-- CONTACT -->
 
-
 <section id="contact" class="contact">
 
+    <h1>Contact</h1>
 
-<h1>Contact</h1>
+    <p>Email: mzulhamizanhailmi@gmail.com</p>
 
+    <p>Instagram: @miizannnn</p>
 
-<p>Email: mzulhamizanhailmi@gmail.com</p>
-
-<p>Instagram: @miizannnn</p>
-
-<p>GitHub: username</p>
-
+    <p>GitHub: username</p>
 
 </section>
 
-
-
-
 </main>
 
+<!-- POPUP -->
 
+<div id="popup" class="popup">
+
+    <button class="back-btn" onclick="closeGallery()">
+        ← Back
+    </button>
+
+    <div id="popup-images" class="popup-images">
+    </div>
+
+</div>
 
 <script src="script.js"></script>
-
 
 </body>
 
 </html>
-```
