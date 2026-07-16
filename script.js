@@ -53,6 +53,7 @@ const observer = new IntersectionObserver((entries) => {
 
 }, { threshold: 0.2 });
 
+
 items.forEach(item => {
 
     item.style.opacity = "0";
@@ -75,15 +76,17 @@ window.addEventListener("load", () => {
     hero.style.opacity = "0";
     hero.style.transform = "translateY(30px)";
 
+
     setTimeout(() => {
 
         hero.style.transition = "1s ease";
         hero.style.opacity = "1";
         hero.style.transform = "translateY(0)";
 
-    }, 300);
+    },300);
 
 });
+
 
 
 // ==========================
@@ -92,83 +95,102 @@ window.addEventListener("load", () => {
 
 const galleries = {
 
+
     laferrari: [
-        "images/cars/la-ferrari/01.jpg",
-        "images/cars/la-ferrari/02.jpg",
-        "images/cars/la-ferrari/03.jpg",
-        "images/cars/la-ferrari/04.jpg"
+        "images/cars/la-ferrari/project.webp"
     ],
+
 
     stoevo2: [
-        "images/cars/lamborghini-sto-evo2/01.jpg",
-        "images/cars/lamborghini-sto-evo2/02.jpg",
-        "images/cars/lamborghini-sto-evo2/03.jpg"
+        "images/cars/lamborghini-sto-evo2/project.webp"
     ],
+
 
     carrerasc: [
-        "images/cars/porsche-carrera-sc-hwa/01.jpg",
-        "images/cars/porsche-carrera-sc-hwa/02.jpg"
+        "images/cars/porsche-carrera-sc-hwa/project.webp"
     ],
+
 
     r34: [
-        "images/cars/nissan-gtr-r34/01.jpg",
-        "images/cars/nissan-gtr-r34/02.jpg"
+        "images/cars/nissan-gtr-r34/project.webp"
     ],
+
 
     rirana: [
-        "images/cars/rirana/01.jpg",
-        "images/cars/rirana/02.jpg"
+        "images/cars/rirana/project.webp"
     ],
+
 
     ferrari296: [
-        "images/cars/ferrari-296-gtb/01.jpg",
-        "images/cars/ferrari-296-gtb/02.jpg"
+        "images/cars/ferrari-296-gtb/project.webp"
     ],
+
 
     gt3: [
-        "images/cars/porsche-gt3/01.jpg",
-        "images/cars/porsche-gt3/02.jpg"
+        "images/cars/porsche-gt3/project.webp"
     ],
+
 
     purosangue: [
-        "images/cars/ferrari-purosangue/01.jpg",
-        "images/cars/ferrari-purosangue/02.jpg"
+        "images/cars/ferrari-purosangue/project.webp"
     ],
 
-    gt3rs: [
-        "images/cars/porsche-gt3-rs/01.jpg",
-        "images/cars/porsche-gt3-rs/02.jpg"
+
+    turbos: [
+        "images/cars/porsche-turbo-s/project.webp"
     ]
 
 };
 
+
+
+// OPEN POPUP
+
 function openGallery(car) {
 
+
     const popup = document.getElementById("popup");
+
     const container = document.getElementById("popup-images");
+
 
     container.innerHTML = "";
 
+
     galleries[car].forEach(image => {
+
 
         const img = document.createElement("img");
 
+
         img.src = image;
+
 
         container.appendChild(img);
 
+
     });
+
 
     popup.style.display = "block";
 
+
     document.body.style.overflow = "hidden";
+
 
 }
 
+
+
+// CLOSE POPUP
+
 function closeGallery() {
+
 
     document.getElementById("popup").style.display = "none";
 
+
     document.body.style.overflow = "auto";
+
 
 }
