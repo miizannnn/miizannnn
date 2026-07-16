@@ -1,4 +1,3 @@
-```css
 /* ==========================
    RESET
 ========================== */
@@ -9,9 +8,11 @@
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
+
 
 body{
 
@@ -21,6 +22,7 @@ body{
     font-family:'Inter', sans-serif;
 
 }
+
 
 
 /* ==========================
@@ -51,6 +53,7 @@ body{
 }
 
 
+
 /* LOGO */
 
 .logo{
@@ -68,14 +71,12 @@ body{
 
     width:100px;
 
-    height:auto;
-
 }
 
 
 
-/* NAVIGATION */
 
+/* NAV */
 
 nav{
 
@@ -89,7 +90,7 @@ nav{
 
     align-items:center;
 
-    gap:35px;
+    gap:25px;
 
 }
 
@@ -101,7 +102,7 @@ nav a{
 
     color:white;
 
-    font-size:14px;
+    font-size:13px;
 
     letter-spacing:3px;
 
@@ -116,6 +117,7 @@ nav a{
 }
 
 
+
 nav a:hover{
 
     opacity:1;
@@ -126,9 +128,8 @@ nav a:hover{
 
 
 
-
 /* ==========================
-   RIGHT CONTENT
+   CONTENT
 ========================== */
 
 
@@ -142,8 +143,10 @@ nav a:hover{
 
 
 
+
+
 /* ==========================
-   VIDEO HERO
+   HERO
 ========================== */
 
 
@@ -185,7 +188,6 @@ nav a:hover{
 
 
 
-
 .hero-text{
 
     position:absolute;
@@ -203,6 +205,7 @@ nav a:hover{
     text-align:center;
 
 }
+
 
 
 .hero-text h1{
@@ -225,37 +228,9 @@ nav a:hover{
 
     letter-spacing:4px;
 
-    opacity:.8;
-
 }
 
 
-
-
-.scroll{
-
-    position:absolute;
-
-    bottom:40px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    font-size:12px;
-
-    letter-spacing:3px;
-
-}
-
-
-
-/* REMOVE LINK STYLE FROM GALLERY */
-
-.item a{
-    color:white;
-    text-decoration:none;
-}
 
 /* ==========================
    GALLERY
@@ -362,26 +337,100 @@ nav a:hover{
 }
 
 
-
 .contact h1{
 
     font-size:60px;
 
     font-weight:300;
 
-    margin-bottom:40px;
+}
+
+
+
+/* ==========================
+   POPUP GALLERY
+========================== */
+
+
+.popup{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:none;
+
+    overflow-y:auto;
+
+    z-index:9999;
+
+    padding:80px 0;
 
 }
 
 
 
-.contact p{
+.back-btn{
 
-    font-size:18px;
+    position:fixed;
 
-    margin:15px 0;
+    top:30px;
 
-    opacity:.8;
+    left:30px;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    z-index:10000;
+
+}
+
+
+
+.back-btn:hover{
+
+    opacity:.6;
+
+}
+
+
+
+.popup-images{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:50px;
+
+}
+
+
+
+.popup-images img{
+
+    width:90%;
+
+    max-width:1600px;
+
+    height:auto;
+
+    display:block;
 
 }
 
@@ -405,6 +454,7 @@ nav a:hover{
     height:auto;
 
 }
+
 
 
 .content{
@@ -438,85 +488,6 @@ nav{
     font-size:40px;
 
 }
-/* ==========================
-   POPUP GALLERY
-========================== */
 
-.popup{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    display:none;
-
-    overflow-y:auto;
-
-    z-index:999;
-
-    padding:80px 0;
 
 }
-
-.back-btn{
-
-    position:fixed;
-
-    top:30px;
-
-    left:30px;
-
-    background:none;
-
-    border:none;
-
-    color:#fff;
-
-    font-size:15px;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    z-index:1000;
-
-    transition:.3s;
-
-}
-
-.back-btn:hover{
-
-    opacity:.6;
-
-}
-
-.popup-images{
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:50px;
-
-}
-
-.popup-images img{
-
-    width:90%;
-
-    max-width:1600px;
-
-    height:auto;
-
-    display:block;
-
-}
-
-}
-```
