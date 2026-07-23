@@ -1,4 +1,31 @@
 // ==========================
+// PREVENT AUTO SCROLL / HASH JUMP
+// ==========================
+
+if (history.scrollRestoration) {
+
+    history.scrollRestoration = "manual";
+
+}
+
+
+window.addEventListener("load", () => {
+
+    if (window.location.hash) {
+
+        history.replaceState(null, null, " ");
+
+    }
+
+    window.scrollTo(0,0);
+
+});
+
+
+
+
+
+// ==========================
 // ACTIVE NAVIGATION
 // ==========================
 
@@ -6,36 +33,41 @@ const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("nav a");
 
 
-window.addEventListener("scroll", () => {
-
-    let current = "";
+window.addEventListener("scroll",()=>{
 
 
-    sections.forEach(section => {
+    let current="";
+
+
+    sections.forEach(section=>{
+
 
         const sectionTop = section.offsetTop - 200;
 
 
         if(window.scrollY >= sectionTop){
 
-            current = section.getAttribute("id");
+            current = section.id;
 
         }
+
 
     });
 
 
 
-    links.forEach(link => {
-
-        link.style.opacity = "0.6";
+    links.forEach(link=>{
 
 
-        if(link.getAttribute("href") === "#" + current){
+        link.style.opacity=".6";
 
-            link.style.opacity = "1";
+
+        if(link.getAttribute("href")==="#"+current){
+
+            link.style.opacity="1";
 
         }
+
 
     });
 
@@ -46,51 +78,53 @@ window.addEventListener("scroll", () => {
 
 
 
+
+
 // ==========================
-// IMAGE FADE IN
+// IMAGE FADE
 // ==========================
 
 
-const items = document.querySelectorAll(".item");
+const items=document.querySelectorAll(".item");
 
 
-const observer = new IntersectionObserver((entries)=>{
+const observer=new IntersectionObserver((entries)=>{
 
 
-    entries.forEach(entry=>{
+entries.forEach(entry=>{
 
 
-        if(entry.isIntersecting){
+if(entry.isIntersecting){
 
-            entry.target.style.opacity="1";
+entry.target.style.opacity="1";
 
-            entry.target.style.transform="translateY(0)";
+entry.target.style.transform="translateY(0)";
 
-        }
-
-
-    });
+}
 
 
-},{threshold:0.2});
+});
 
+
+},{threshold:.2});
 
 
 
 items.forEach(item=>{
 
 
-    item.style.opacity="0";
+item.style.opacity="0";
 
-    item.style.transform="translateY(40px)";
+item.style.transform="translateY(40px)";
 
-    item.style.transition="0.8s ease";
+item.style.transition=".8s ease";
 
 
-    observer.observe(item);
+observer.observe(item);
 
 
 });
+
 
 
 
@@ -105,29 +139,31 @@ items.forEach(item=>{
 window.addEventListener("load",()=>{
 
 
-    const hero = document.querySelector(".hero-text");
+const hero=document.querySelector(".hero-text");
 
 
-    if(hero){
-
-        hero.style.opacity="0";
-
-        hero.style.transform="translateY(30px)";
+if(hero){
 
 
-        setTimeout(()=>{
+hero.style.opacity="0";
+
+hero.style.transform="translateY(30px)";
 
 
-            hero.style.transition="1s ease";
-
-            hero.style.opacity="1";
-
-            hero.style.transform="translateY(0)";
+setTimeout(()=>{
 
 
-        },300);
+hero.style.transition="1s ease";
 
-    }
+hero.style.opacity="1";
+
+hero.style.transform="translateY(0)";
+
+
+},300);
+
+
+}
 
 
 });
@@ -137,44 +173,94 @@ window.addEventListener("load",()=>{
 
 
 
+
 // ==========================
-// MOBILE REEL SOUND
+// VIDEO SOUND SYSTEM
 // ==========================
 
 
-const soundButtons = document.querySelectorAll(".sound-btn");
+const videos=document.querySelectorAll("video");
 
-
-soundButtons.forEach(button=>{
-
-
-    const video = button.parentElement.querySelector("video");
+const buttons=document.querySelectorAll(".sound-btn");
 
 
 
-    button.addEventListener("click",()=>{
+function updateButton(button, muted){
 
 
-        if(video.muted){
+if(muted){
+
+button.classList.add("muted");
+
+}
+
+else{
+
+button.classList.remove("muted");
+
+}
 
 
-            video.muted = false;
-
-            button.textContent="🔊";
+}
 
 
-        }else{
+
+buttons.forEach(button=>{
 
 
-            video.muted=true;
-
-            button.textContent="🔇";
+const video=button.parentElement.querySelector("video");
 
 
-        }
+// start muted
+
+video.muted=true;
+
+updateButton(button,true);
 
 
-    });
+
+button.addEventListener("click",()=>{
+
+
+// mute all other videos
+
+videos.forEach(v=>{
+
+
+if(v!==video){
+
+v.muted=true;
+
+
+const otherButton=
+v.parentElement.querySelector(".sound-btn");
+
+
+if(otherButton){
+
+updateButton(otherButton,true);
+
+}
+
+
+}
+
+
+});
+
+
+
+// toggle current
+
+
+video.muted=!video.muted;
+
+
+updateButton(button,video.muted);
+
+
+
+});
 
 
 });
@@ -190,7 +276,7 @@ soundButtons.forEach(button=>{
 // ==========================
 
 
-const galleries = {
+const galleries={
 
 
 laferrari:[
@@ -254,9 +340,7 @@ const popup=document.getElementById("popup");
 const container=document.getElementById("popup-images");
 
 
-
 container.innerHTML="";
-
 
 
 galleries[car].forEach(image=>{
@@ -282,7 +366,6 @@ document.body.style.overflow="hidden";
 
 
 }
-
 
 
 
