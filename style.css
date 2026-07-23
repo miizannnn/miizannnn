@@ -211,8 +211,6 @@ nav a:hover{
 
     letter-spacing:10px;
 
-    text-transform:uppercase;
-
 }
 
 
@@ -232,7 +230,7 @@ nav a:hover{
 
 
 /* ==========================
-   PHOTO GALLERY
+   GALLERY
 ========================== */
 
 
@@ -266,7 +264,7 @@ nav a:hover{
 
     width:100%;
 
-    aspect-ratio:16 / 9;
+    aspect-ratio:16/9;
 
     object-fit:cover;
 
@@ -294,13 +292,9 @@ nav a:hover{
 
     text-align:center;
 
-    padding:20px;
-
     background:rgba(0,0,0,.35);
 
-    font-size:20px;
-
-    letter-spacing:3px;
+    padding:20px;
 
     opacity:0;
 
@@ -331,7 +325,7 @@ nav a:hover{
 
 
 /* ==========================
-   REELS
+   DESKTOP REELS
 ========================== */
 
 
@@ -355,15 +349,13 @@ nav a:hover{
 
     width:300px;
 
-    aspect-ratio:9 / 16;
+    aspect-ratio:9/16;
 
     overflow:hidden;
 
     background:#111;
 
-    opacity:.65;
-
-    transition:.4s ease;
+    opacity:.8;
 
 }
 
@@ -382,39 +374,15 @@ nav a:hover{
 }
 
 
-
-.reel-card.featured{
-
-    transform:scale(1.25);
-
-    opacity:1;
-
-    z-index:2;
-
-}
-
-
-.reel-card:hover{
-
-    opacity:.65;
-
-    transform:none;
-
-}
-
-
-
-.reel-card.featured:hover{
-
-    transform:scale(1.25);
-
-}
+/* REMOVED FEATURED SCALE */
 
 
 
 
 
-/* MOBILE REELS */
+/* ==========================
+   MOBILE REELS
+========================== */
 
 
 .mobile-reels{
@@ -422,6 +390,40 @@ nav a:hover{
     display:none;
 
 }
+
+
+
+.sound-btn{
+
+    position:absolute;
+
+    bottom:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:rgba(0,0,0,.6);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+
+
+
 
 /* ==========================
    CONTACT
@@ -450,19 +452,15 @@ nav a:hover{
 
     font-weight:800;
 
-    margin-bottom:20px;
-
     line-height:1;
 
-    letter-spacing:-2px;
+    margin-bottom:20px;
 
 }
 
 
 
 .contact-subtitle{
-
-    font-size:1rem;
 
     opacity:.7;
 
@@ -488,40 +486,22 @@ nav a:hover{
 
     font-size:12px;
 
-    font-weight:500;
-
-    margin-bottom:12px;
-
     letter-spacing:3px;
 
     opacity:.5;
 
-    text-transform:uppercase;
+    margin-bottom:12px;
 
 }
 
 
 
-.contact-block p,
-.contact-block a{
+.contact-block a,
+.contact-block p{
 
     color:white;
 
     text-decoration:none;
-
-    font-size:1rem;
-
-    opacity:.8;
-
-    transition:.3s;
-
-}
-
-
-
-.contact-block a:hover{
-
-    opacity:1;
 
 }
 
@@ -540,30 +520,6 @@ nav a:hover{
 
     gap:24px;
 
-    align-items:center;
-
-}
-
-
-
-.social-links a{
-
-    color:white;
-
-    opacity:.7;
-
-    transition:.3s ease;
-
-}
-
-
-
-.social-links a:hover{
-
-    opacity:1;
-
-    transform:translateY(-3px);
-
 }
 
 
@@ -581,7 +537,7 @@ nav a:hover{
 
 
 /* ==========================
-   POPUP GALLERY
+   POPUP
 ========================== */
 
 
@@ -619,29 +575,11 @@ nav a:hover{
 
     color:white;
 
-    font-size:15px;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    z-index:10000;
-
-}
-
-
-
-.back-btn:hover{
-
-    opacity:.6;
-
 }
 
 
 
 .popup-images{
-
-    width:100%;
 
     display:flex;
 
@@ -661,8 +599,6 @@ nav a:hover{
 
     max-width:1600px;
 
-    height:auto;
-
 }
 
 
@@ -677,7 +613,6 @@ nav a:hover{
 @media(max-width:900px){
 
 
-
 .sidebar{
 
     position:relative;
@@ -687,7 +622,6 @@ nav a:hover{
     height:auto;
 
 }
-
 
 
 .content{
@@ -718,26 +652,11 @@ nav{
 
 
 
-/* HERO MOBILE LANDSCAPE */
-
-
 .hero{
 
     height:auto;
 
-    aspect-ratio:16 / 9;
-
-}
-
-
-
-.hero video{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
+    aspect-ratio:16/9;
 
 }
 
@@ -746,8 +665,6 @@ nav{
 .hero-text h1{
 
     font-size:40px;
-
-    letter-spacing:5px;
 
 }
 
@@ -763,20 +680,12 @@ nav{
 
 
 
-/* HIDE DESKTOP REELS */
-
-
 .desktop-reels{
 
     display:none;
 
 }
 
-
-
-
-
-/* MOBILE SWIPE REELS */
 
 
 .mobile-reels{
@@ -797,13 +706,15 @@ nav{
 
 .mobile-reel{
 
+    position:relative;
+
     flex:0 0 220px;
 
-    aspect-ratio:9 / 16;
-
-    scroll-snap-align:center;
+    aspect-ratio:9/16;
 
     overflow:hidden;
+
+    scroll-snap-align:center;
 
 }
 
@@ -826,15 +737,6 @@ nav{
     padding:80px 25px;
 
 }
-
-
-
-.contact-subtitle{
-
-    margin-bottom:70px;
-
-}
-
 
 
 }
