@@ -267,11 +267,12 @@ updateButton(button,video.muted);
 
 
 // ==========================
-// AUTO MUTE WHEN REELS ARE OUT OF VIEW
+// AUTO MUTE REELS WHEN OUT OF VIEW
 // ==========================
 
-
-const reelVideos = document.querySelectorAll(".reel-card video, .mobile-reel video");
+const reelVideos = document.querySelectorAll(
+    ".reel-card video, .mobile-reel video"
+);
 
 
 const reelObserver = new IntersectionObserver((entries)=>{
@@ -282,14 +283,19 @@ const reelObserver = new IntersectionObserver((entries)=>{
 
         const video = entry.target;
 
-
         const button = video.parentElement.querySelector(".sound-btn");
 
 
+        if(entry.isIntersecting){
 
-        if(!entry.isIntersecting){
+            // keep playing but muted
+            video.play();
+
+        } 
+        else {
 
 
+            // mute when leaving screen
             video.muted = true;
 
 
@@ -308,7 +314,7 @@ const reelObserver = new IntersectionObserver((entries)=>{
 
 },{
 
-    threshold:0.25
+    threshold:0.5
 
 });
 
