@@ -441,3 +441,30 @@ document.body.style.overflow="auto";
 
 
 }
+
+
+// ==========================
+// DESKTOP SIDEBAR TOGGLE
+// ==========================
+
+
+const sidebarToggle = document.getElementById("sidebarToggle");
+const sidebar = document.querySelector(".sidebar");
+const content = document.querySelector(".content");
+
+
+if(sidebarToggle){
+
+
+    sidebarToggle.addEventListener("click",()=>{
+
+
+        sidebar.classList.toggle("closed");
+
+        content.classList.toggle("expand");
+
+
+    });
+
+
+}
