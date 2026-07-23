@@ -455,7 +455,8 @@ const overlay = document.getElementById("sidebarOverlay");
 
 sidebarToggle.addEventListener("click",()=>{
 
-    sidebar.classList.toggle("closed");
+  sidebar.classList.toggle("closed");
+content.classList.toggle("expand");
 
     if(overlay){
         overlay.classList.toggle("active");
