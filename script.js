@@ -266,7 +266,59 @@ updateButton(button,video.muted);
 });
 
 
+// ==========================
+// AUTO MUTE WHEN REELS ARE OUT OF VIEW
+// ==========================
 
+
+const reelVideos = document.querySelectorAll(".reel-card video, .mobile-reel video");
+
+
+const reelObserver = new IntersectionObserver((entries)=>{
+
+
+    entries.forEach(entry=>{
+
+
+        const video = entry.target;
+
+
+        const button = video.parentElement.querySelector(".sound-btn");
+
+
+
+        if(!entry.isIntersecting){
+
+
+            video.muted = true;
+
+
+            if(button){
+
+                button.classList.add("muted");
+
+            }
+
+
+        }
+
+
+    });
+
+
+},{
+
+    threshold:0.25
+
+});
+
+
+
+reelVideos.forEach(video=>{
+
+    reelObserver.observe(video);
+
+});
 
 
 
