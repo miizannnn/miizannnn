@@ -8,9 +8,11 @@
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
+
 
 body{
     background:#000;
@@ -20,9 +22,12 @@ body{
 
 
 
+
+
 /* ==========================
-   FIXED SIDEBAR
+   SIDEBAR
 ========================== */
+
 
 .sidebar{
 
@@ -35,7 +40,7 @@ body{
 
     background:#000;
 
-    border-right:1px solid rgba(255,255,255,0.1);
+    border-right:1px solid rgba(255,255,255,.1);
 
     display:flex;
     flex-direction:column;
@@ -45,8 +50,6 @@ body{
 }
 
 
-
-/* LOGO */
 
 .logo{
 
@@ -58,6 +61,7 @@ body{
 }
 
 
+
 .logo img{
 
     width:100px;
@@ -66,7 +70,6 @@ body{
 
 
 
-/* NAV */
 
 nav{
 
@@ -76,6 +79,7 @@ nav{
     flex-direction:column;
 
     justify-content:center;
+
     align-items:center;
 
     gap:25px;
@@ -83,17 +87,18 @@ nav{
 }
 
 
+
 nav a{
+
+    color:#fff;
 
     text-decoration:none;
 
-    color:white;
+    text-transform:uppercase;
 
     font-size:13px;
 
     letter-spacing:3px;
-
-    text-transform:uppercase;
 
     font-weight:300;
 
@@ -102,6 +107,7 @@ nav a{
     transition:.4s;
 
 }
+
 
 
 nav a:hover{
@@ -119,6 +125,7 @@ nav a:hover{
 /* ==========================
    CONTENT
 ========================== */
+
 
 .content{
 
@@ -148,6 +155,7 @@ nav a:hover{
 }
 
 
+
 .hero video{
 
     position:absolute;
@@ -161,6 +169,7 @@ nav a:hover{
 }
 
 
+
 .hero-overlay{
 
     position:absolute;
@@ -170,6 +179,7 @@ nav a:hover{
     background:rgba(0,0,0,.45);
 
 }
+
 
 
 .hero-text{
@@ -191,6 +201,7 @@ nav a:hover{
 }
 
 
+
 .hero-text h1{
 
     font-size:clamp(2.5rem,6vw,5rem);
@@ -202,6 +213,7 @@ nav a:hover{
     text-transform:uppercase;
 
 }
+
 
 
 .hero-text p{
@@ -236,6 +248,7 @@ nav a:hover{
 }
 
 
+
 .item{
 
     position:relative;
@@ -247,11 +260,12 @@ nav a:hover{
 }
 
 
+
 .item img{
 
     width:100%;
 
-    aspect-ratio:4/5;
+    aspect-ratio:4 / 5;
 
     object-fit:cover;
 
@@ -262,6 +276,7 @@ nav a:hover{
     transition:.7s;
 
 }
+
 
 
 .title{
@@ -276,6 +291,10 @@ nav a:hover{
 
     align-items:center;
 
+    text-align:center;
+
+    padding:20px;
+
     background:rgba(0,0,0,.35);
 
     font-size:20px;
@@ -289,6 +308,7 @@ nav a:hover{
 }
 
 
+
 .item:hover img{
 
     filter:grayscale(0);
@@ -296,6 +316,7 @@ nav a:hover{
     transform:scale(1.08);
 
 }
+
 
 
 .item:hover .title{
@@ -309,38 +330,19 @@ nav a:hover{
 
 
 /* ==========================
-   REELS SECTION
+   REELS UNDER PORTFOLIO
 ========================== */
 
 
-.reels-section{
+.desktop-reels{
 
-    padding:80px 25px;
+    padding:70px 25px;
 
-}
+    display:flex;
 
+    justify-content:center;
 
-.reels-title{
-
-    font-size:40px;
-
-    font-weight:700;
-
-    letter-spacing:5px;
-
-    margin-bottom:40px;
-
-    text-transform:uppercase;
-
-}
-
-
-
-.reels-container{
-
-    display:grid;
-
-    grid-template-columns:repeat(5,1fr);
+    align-items:center;
 
     gap:18px;
 
@@ -348,23 +350,25 @@ nav a:hover{
 
 
 
-.reel{
+.reel-card{
 
-    position:relative;
+    width:150px;
+
+    aspect-ratio:9 / 16;
 
     overflow:hidden;
 
-    cursor:pointer;
-
-    aspect-ratio:9/16;
-
     background:#111;
+
+    opacity:.65;
+
+    transition:.4s ease;
 
 }
 
 
 
-.reel video{
+.reel-card video{
 
     width:100%;
 
@@ -374,59 +378,58 @@ nav a:hover{
 
     display:block;
 
-    transition:.6s;
+}
+
+
+
+.reel-card.featured{
+
+    transform:scale(1.15);
+
+    opacity:1;
+
+    z-index:2;
 
 }
 
 
 
-.reel::after{
+.reel-card:hover{
 
-    content:"VIEW REEL";
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.45);
-
-    letter-spacing:3px;
-
-    font-size:13px;
-
-    opacity:0;
-
-    transition:.4s;
-
-}
-
-
-
-.reel:hover video{
+    opacity:1;
 
     transform:scale(1.08);
 
 }
 
 
-.reel:hover::after{
 
-    opacity:1;
+.reel-card.featured:hover{
+
+    transform:scale(1.2);
 
 }
+/* ==========================
+   MOBILE REELS
+========================== */
+
+
+.mobile-reels{
+
+    display:none;
+
+}
+
+
+
+
 
 /* ==========================
    CONTACT
 ========================== */
 
 
-.contact {
+.contact{
 
     min-height:100vh;
 
@@ -442,7 +445,7 @@ nav a:hover{
 
 
 
-.contact h1 {
+.contact h1{
 
     font-size:clamp(2.5rem,6vw,5rem);
 
@@ -458,7 +461,7 @@ nav a:hover{
 
 
 
-.contact-subtitle {
+.contact-subtitle{
 
     font-size:1rem;
 
@@ -474,7 +477,7 @@ nav a:hover{
 
 
 
-.contact-block {
+.contact-block{
 
     margin-bottom:50px;
 
@@ -482,7 +485,7 @@ nav a:hover{
 
 
 
-.contact-block h3 {
+.contact-block h3{
 
     font-size:12px;
 
@@ -501,13 +504,13 @@ nav a:hover{
 
 
 .contact-block p,
-.contact-block a {
-
-    font-size:1rem;
+.contact-block a{
 
     color:white;
 
     text-decoration:none;
+
+    font-size:1rem;
 
     opacity:.8;
 
@@ -517,7 +520,7 @@ nav a:hover{
 
 
 
-.contact-block a:hover {
+.contact-block a:hover{
 
     opacity:1;
 
@@ -526,10 +529,11 @@ nav a:hover{
 
 
 
+
 /* SOCIAL ICONS */
 
 
-.social-links {
+.social-links{
 
     display:flex;
 
@@ -540,7 +544,8 @@ nav a:hover{
 }
 
 
-.social-links a {
+
+.social-links a{
 
     color:white;
 
@@ -552,7 +557,7 @@ nav a:hover{
 
 
 
-.social-links a:hover {
+.social-links a:hover{
 
     opacity:1;
 
@@ -562,13 +567,11 @@ nav a:hover{
 
 
 
-.social-links svg {
+.social-links svg{
 
     width:28px;
 
     height:28px;
-
-    display:block;
 
 }
 
@@ -581,7 +584,7 @@ nav a:hover{
 ========================== */
 
 
-.popup {
+.popup{
 
     position:fixed;
 
@@ -601,7 +604,7 @@ nav a:hover{
 
 
 
-.back-btn {
+.back-btn{
 
     position:fixed;
 
@@ -627,7 +630,7 @@ nav a:hover{
 
 
 
-.back-btn:hover {
+.back-btn:hover{
 
     opacity:.6;
 
@@ -635,7 +638,7 @@ nav a:hover{
 
 
 
-.popup-images {
+.popup-images{
 
     width:100%;
 
@@ -651,53 +654,13 @@ nav a:hover{
 
 
 
-.popup-images img {
+.popup-images img{
 
     width:90%;
 
     max-width:1600px;
 
     height:auto;
-
-    display:block;
-
-}
-
-
-
-
-
-/* ==========================
-   IMAGE FADE ANIMATION
-========================== */
-
-
-.item {
-
-    animation:fadeUp .8s ease forwards;
-
-}
-
-
-
-@keyframes fadeUp {
-
-    from {
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
 
 }
 
@@ -713,7 +676,7 @@ nav a:hover{
 @media(max-width:900px){
 
 
-.sidebar {
+.sidebar{
 
     position:relative;
 
@@ -725,7 +688,7 @@ nav a:hover{
 
 
 
-.content {
+.content{
 
     margin-left:0;
 
@@ -735,7 +698,7 @@ nav a:hover{
 
 
 
-nav {
+nav{
 
     padding:40px 0;
 
@@ -743,7 +706,7 @@ nav {
 
 
 
-.gallery {
+.gallery{
 
     grid-template-columns:1fr;
 
@@ -751,7 +714,7 @@ nav {
 
 
 
-.hero-text h1 {
+.hero-text h1{
 
     font-size:40px;
 
@@ -761,29 +724,33 @@ nav {
 
 
 
-.reels-section {
+.hero-text p{
 
-    padding:60px 20px;
-
-}
-
-
-
-.reels-title {
-
-    font-size:28px;
+    font-size:14px;
 
 }
 
 
 
-.reels-container {
+.desktop-reels{
+
+    display:none;
+
+}
+
+
+
+
+
+.mobile-reels{
 
     display:flex;
 
-    overflow-x:auto;
+    gap:16px;
 
-    gap:15px;
+    padding:40px 20px;
+
+    overflow-x:auto;
 
     scroll-snap-type:x mandatory;
 
@@ -791,17 +758,33 @@ nav {
 
 
 
-.reel {
+.mobile-reel{
 
-    flex:0 0 75%;
+    flex:0 0 150px;
 
-    scroll-snap-align:start;
+    aspect-ratio:9 / 16;
+
+    scroll-snap-align:center;
+
+    overflow:hidden;
 
 }
 
 
 
-.contact {
+.mobile-reel video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.contact{
 
     padding:80px 25px;
 
@@ -809,7 +792,7 @@ nav {
 
 
 
-.contact-subtitle {
+.contact-subtitle{
 
     margin-bottom:70px;
 
