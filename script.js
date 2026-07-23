@@ -443,20 +443,21 @@ document.body.style.overflow="auto";
 }
 
 
-
 // ==========================
 // SIDEBAR TOGGLE
 // ==========================
 
 const sidebarToggle = document.getElementById("sidebarToggle");
 const sidebar = document.querySelector(".sidebar");
+const content = document.querySelector(".content");
 const overlay = document.getElementById("sidebarOverlay");
 
 
 sidebarToggle.addEventListener("click",()=>{
 
   sidebar.classList.toggle("closed");
-content.classList.toggle("expand");
+
+  content.classList.toggle("open");
 
     if(overlay){
         overlay.classList.toggle("active");
@@ -471,6 +472,8 @@ if(overlay){
     overlay.addEventListener("click",()=>{
 
         sidebar.classList.add("closed");
+
+        content.classList.remove("open");
 
         overlay.classList.remove("active");
 
