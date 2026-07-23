@@ -740,3 +740,114 @@ nav{
 
 
 }
+
+
+/* ==========================
+   SOUND BUTTON
+========================== */
+
+.reel-card,
+.mobile-reel{
+
+    position:relative;
+
+}
+
+
+.sound-btn{
+
+    position:absolute;
+
+    bottom:15px;
+
+    right:15px;
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:.3s ease;
+
+}
+
+
+
+.sound-btn:hover{
+
+    background:rgba(255,255,255,.15);
+
+    transform:scale(1.08);
+
+}
+
+
+
+.sound-icon{
+
+    width:18px;
+
+    height:18px;
+
+    fill:white;
+
+}
+
+
+
+.sound-icon .wave{
+
+    fill:none;
+
+    stroke:white;
+
+    stroke-width:2;
+
+    stroke-linecap:round;
+
+}
+
+
+
+/* MUTED STATE */
+
+.sound-btn.muted .wave{
+
+    opacity:0;
+
+}
+
+
+
+.sound-btn.muted::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+
+    height:2px;
+
+    background:white;
+
+    transform:rotate(-45deg);
+
+}
