@@ -1,3 +1,12 @@
+// FORCE START FROM TOP
+
+window.history.scrollRestoration = "manual";
+
+window.onload = function(){
+
+    window.scrollTo(0,0);
+
+};
 // ==========================
 // ACTIVE NAVIGATION
 // ==========================
