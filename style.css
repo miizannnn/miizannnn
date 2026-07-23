@@ -71,6 +71,7 @@ body{
 
 
 
+
 nav{
 
     flex:1;
@@ -90,7 +91,7 @@ nav{
 
 nav a{
 
-    color:#fff;
+    color:white;
 
     text-decoration:none;
 
@@ -265,7 +266,7 @@ nav a:hover{
 
     width:100%;
 
-    aspect-ratio:4 / 5;
+    aspect-ratio:16 / 9;
 
     object-fit:cover;
 
@@ -324,13 +325,8 @@ nav a:hover{
     opacity:1;
 
 }
-
-
-
-
-
 /* ==========================
-   REELS UNDER PORTFOLIO
+   REELS
 ========================== */
 
 
@@ -409,9 +405,12 @@ nav a:hover{
     transform:scale(1.2);
 
 }
-/* ==========================
-   MOBILE REELS
-========================== */
+
+
+
+
+
+/* MOBILE REELS */
 
 
 .mobile-reels{
@@ -530,7 +529,7 @@ nav a:hover{
 
 
 
-/* SOCIAL ICONS */
+/* SOCIAL */
 
 
 .social-links{
@@ -732,6 +731,9 @@ nav{
 
 
 
+
+/* hide desktop reels */
+
 .desktop-reels{
 
     display:none;
@@ -741,6 +743,7 @@ nav{
 
 
 
+/* mobile swipe reels */
 
 .mobile-reels{
 
