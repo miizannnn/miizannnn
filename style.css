@@ -385,7 +385,7 @@ nav a:hover{
 
 .reel-card.featured{
 
-    transform:scale(1.15);
+    transform:scale(1.25);
 
     opacity:1;
 
@@ -394,12 +394,11 @@ nav a:hover{
 }
 
 
-
 .reel-card:hover{
 
-    opacity:1;
+    opacity:.65;
 
-    transform:scale(1.08);
+    transform:none;
 
 }
 
@@ -407,7 +406,7 @@ nav a:hover{
 
 .reel-card.featured:hover{
 
-    transform:scale(1.2);
+    transform:scale(1.25);
 
 }
 
@@ -798,7 +797,7 @@ nav{
 
 .mobile-reel{
 
-    flex:0 0 150px;
+    flex:0 0 220px;
 
     aspect-ratio:9 / 16;
 
