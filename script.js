@@ -1,12 +1,3 @@
-// FORCE START FROM TOP
-
-window.history.scrollRestoration = "manual";
-
-window.onload = function(){
-
-    window.scrollTo(0,0);
-
-};
 // ==========================
 // ACTIVE NAVIGATION
 // ==========================
@@ -25,7 +16,7 @@ window.addEventListener("scroll", () => {
         const sectionTop = section.offsetTop - 200;
 
 
-        if (window.scrollY >= sectionTop) {
+        if(window.scrollY >= sectionTop){
 
             current = section.getAttribute("id");
 
@@ -40,7 +31,7 @@ window.addEventListener("scroll", () => {
         link.style.opacity = "0.6";
 
 
-        if (link.getAttribute("href") === "#" + current) {
+        if(link.getAttribute("href") === "#" + current){
 
             link.style.opacity = "1";
 
@@ -63,19 +54,17 @@ window.addEventListener("scroll", () => {
 const items = document.querySelectorAll(".item");
 
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries)=>{
 
 
-    entries.forEach(entry => {
+    entries.forEach(entry=>{
 
 
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting){
 
+            entry.target.style.opacity="1";
 
-            entry.target.style.opacity = "1";
-
-            entry.target.style.transform = "translateY(0)";
-
+            entry.target.style.transform="translateY(0)";
 
         }
 
@@ -83,18 +72,19 @@ const observer = new IntersectionObserver((entries) => {
     });
 
 
-}, { threshold: 0.2 });
+},{threshold:0.2});
 
 
 
-items.forEach(item => {
+
+items.forEach(item=>{
 
 
-    item.style.opacity = "0";
+    item.style.opacity="0";
 
-    item.style.transform = "translateY(40px)";
+    item.style.transform="translateY(40px)";
 
-    item.style.transition = "0.8s ease";
+    item.style.transition="0.8s ease";
 
 
     observer.observe(item);
@@ -107,36 +97,84 @@ items.forEach(item => {
 
 
 
-
 // ==========================
 // HERO ANIMATION
 // ==========================
 
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
 
     const hero = document.querySelector(".hero-text");
 
 
-    hero.style.opacity = "0";
+    if(hero){
 
-    hero.style.transform = "translateY(30px)";
+        hero.style.opacity="0";
 
-
-
-    setTimeout(() => {
+        hero.style.transform="translateY(30px)";
 
 
-        hero.style.transition = "1s ease";
-
-        hero.style.opacity = "1";
-
-        hero.style.transform = "translateY(0)";
+        setTimeout(()=>{
 
 
-    },300);
+            hero.style.transition="1s ease";
 
+            hero.style.opacity="1";
+
+            hero.style.transform="translateY(0)";
+
+
+        },300);
+
+    }
+
+
+});
+
+
+
+
+
+
+// ==========================
+// MOBILE REEL SOUND
+// ==========================
+
+
+const soundButtons = document.querySelectorAll(".sound-btn");
+
+
+soundButtons.forEach(button=>{
+
+
+    const video = button.parentElement.querySelector("video");
+
+
+
+    button.addEventListener("click",()=>{
+
+
+        if(video.muted){
+
+
+            video.muted = false;
+
+            button.textContent="🔊";
+
+
+        }else{
+
+
+            video.muted=true;
+
+            button.textContent="🔇";
+
+
+        }
+
+
+    });
 
 
 });
@@ -155,76 +193,49 @@ window.addEventListener("load", () => {
 const galleries = {
 
 
-
-    laferrari: [
-
-        "images/cars/la-ferrari/project.webp"
-
-    ],
+laferrari:[
+"images/cars/la-ferrari/project.webp"
+],
 
 
-
-    stoevo2: [
-
-        "images/cars/lamborghini-sto-evo2/project.webp"
-
-    ],
+stoevo2:[
+"images/cars/lamborghini-sto-evo2/project.webp"
+],
 
 
-
-    carrerasc: [
-
-        "images/cars/porsche-carrera-sc-hwa/project.webp"
-
-    ],
+carrerasc:[
+"images/cars/porsche-carrera-sc-hwa/project.webp"
+],
 
 
-
-    r34: [
-
-        "images/cars/nissan-gtr-r34/project.webp"
-
-    ],
+r34:[
+"images/cars/nissan-gtr-r34/project.webp"
+],
 
 
-
-    rirana: [
-
-        "images/cars/rirana/project.webp"
-
-    ],
+rirana:[
+"images/cars/rirana/project.webp"
+],
 
 
-
-    ferrari296: [
-
-        "images/cars/ferrari-296-gtb/project.webp"
-
-    ],
+ferrari296:[
+"images/cars/ferrari-296-gtb/project.webp"
+],
 
 
-
-    gt3: [
-
-        "images/cars/porsche-gt3/project.webp"
-
-    ],
+gt3:[
+"images/cars/porsche-gt3/project.webp"
+],
 
 
-
-    purosangue: [
-
-        "images/cars/ferrari-purosangue/project.webp"
-
-    ],
+purosangue:[
+"images/cars/ferrari-purosangue/project.webp"
+],
 
 
-
-    turbos: [
-
-        "images/cars/porsche-turbo-s/project.webp"
-
-    ]
+turbos:[
+"images/cars/porsche-turbo-s/project.webp"
+]
 
 
 };
@@ -235,75 +246,57 @@ const galleries = {
 
 
 
-// ==========================
-// OPEN POPUP
-// ==========================
+function openGallery(car){
 
 
-function openGallery(car) {
+const popup=document.getElementById("popup");
 
-
-    const popup = document.getElementById("popup");
-
-    const container = document.getElementById("popup-images");
+const container=document.getElementById("popup-images");
 
 
 
-    container.innerHTML = "";
+container.innerHTML="";
 
 
 
-    galleries[car].forEach(image => {
+galleries[car].forEach(image=>{
 
 
-
-        const img = document.createElement("img");
-
+const img=document.createElement("img");
 
 
-        img.src = image;
+img.src=image;
 
 
-
-        container.appendChild(img);
-
-
-
-    });
-
-
-
-    popup.style.display = "block";
-
-
-
-    document.body.style.overflow = "hidden";
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// CLOSE POPUP
-// ==========================
-
-
-function closeGallery() {
-
-
-    document.getElementById("popup").style.display = "none";
-
-
-    document.body.style.overflow = "auto";
-
-
-}
+container.appendChild(img);
 
 
 });
+
+
+
+popup.style.display="block";
+
+
+document.body.style.overflow="hidden";
+
+
+}
+
+
+
+
+
+
+
+
+function closeGallery(){
+
+
+document.getElementById("popup").style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+}
