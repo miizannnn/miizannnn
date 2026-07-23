@@ -443,28 +443,36 @@ document.body.style.overflow="auto";
 }
 
 
-// ==========================
-// DESKTOP SIDEBAR TOGGLE
-// ==========================
 
+// ==========================
+// SIDEBAR TOGGLE
+// ==========================
 
 const sidebarToggle = document.getElementById("sidebarToggle");
 const sidebar = document.querySelector(".sidebar");
-const content = document.querySelector(".content");
+const overlay = document.getElementById("sidebarOverlay");
 
 
-if(sidebarToggle){
+sidebarToggle.addEventListener("click",()=>{
+
+    sidebar.classList.toggle("closed");
+
+    if(overlay){
+        overlay.classList.toggle("active");
+    }
+
+});
 
 
-    sidebarToggle.addEventListener("click",()=>{
 
+if(overlay){
 
-        sidebar.classList.toggle("closed");
+    overlay.addEventListener("click",()=>{
 
-        content.classList.toggle("expand");
+        sidebar.classList.add("closed");
 
+        overlay.classList.remove("active");
 
     });
-
 
 }
