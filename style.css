@@ -851,3 +851,110 @@ nav{
     transform:rotate(-45deg);
 
 }
+
+/* ==========================
+   SIDEBAR TOGGLE BUTTON
+========================== */
+
+
+.sidebar-toggle{
+
+    position:fixed;
+
+    top:25px;
+    left:25px;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.6);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
+    cursor:pointer;
+
+    z-index:9999;
+
+}
+
+
+
+.sidebar-toggle span{
+
+    width:18px;
+
+    height:1px;
+
+    background:white;
+
+}
+
+
+
+
+/* SIDEBAR ANIMATION */
+
+
+.sidebar{
+
+    transition:transform .5s ease;
+
+}
+
+
+
+.sidebar.closed{
+
+    transform:translateX(-100%);
+
+}
+
+
+
+/* CONTENT ANIMATION */
+
+
+.content{
+
+    transition:.5s ease;
+
+}
+
+
+
+.content.expand{
+
+    margin-left:0;
+
+    width:100%;
+
+}
+
+
+
+/* HIDE BUTTON ON MOBILE */
+
+
+@media(max-width:900px){
+
+    .sidebar-toggle{
+
+        display:none;
+
+    }
+
+}
