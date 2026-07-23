@@ -8,19 +8,14 @@
     box-sizing:border-box;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-
     background:#000;
     color:#fff;
-
     font-family:'Inter', sans-serif;
-
 }
 
 
@@ -29,11 +24,9 @@ body{
    FIXED SIDEBAR
 ========================== */
 
-
 .sidebar{
 
     position:fixed;
-
     left:0;
     top:0;
 
@@ -45,7 +38,6 @@ body{
     border-right:1px solid rgba(255,255,255,0.1);
 
     display:flex;
-
     flex-direction:column;
 
     z-index:10;
@@ -59,7 +51,6 @@ body{
 .logo{
 
     display:flex;
-
     justify-content:center;
 
     padding-top:40px;
@@ -75,7 +66,6 @@ body{
 
 
 
-
 /* NAV */
 
 nav{
@@ -83,17 +73,14 @@ nav{
     flex:1;
 
     display:flex;
-
     flex-direction:column;
 
     justify-content:center;
-
     align-items:center;
 
     gap:25px;
 
 }
-
 
 
 nav a{
@@ -117,7 +104,6 @@ nav a{
 }
 
 
-
 nav a:hover{
 
     opacity:1;
@@ -128,10 +114,11 @@ nav a:hover{
 
 
 
+
+
 /* ==========================
    CONTENT
 ========================== */
-
 
 .content{
 
@@ -161,7 +148,6 @@ nav a:hover{
 }
 
 
-
 .hero video{
 
     position:absolute;
@@ -175,7 +161,6 @@ nav a:hover{
 }
 
 
-
 .hero-overlay{
 
     position:absolute;
@@ -185,7 +170,6 @@ nav a:hover{
     background:rgba(0,0,0,.45);
 
 }
-
 
 
 .hero-text{
@@ -207,16 +191,17 @@ nav a:hover{
 }
 
 
-
 .hero-text h1{
 
-   font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 700;
+    font-size:clamp(2.5rem,6vw,5rem);
 
-    letter-spacing:8px;
+    font-weight:800;
+
+    letter-spacing:10px;
+
+    text-transform:uppercase;
 
 }
-
 
 
 .hero-text p{
@@ -231,8 +216,10 @@ nav a:hover{
 
 
 
+
+
 /* ==========================
-   GALLERY
+   PHOTO GALLERY
 ========================== */
 
 
@@ -249,7 +236,6 @@ nav a:hover{
 }
 
 
-
 .item{
 
     position:relative;
@@ -261,10 +247,13 @@ nav a:hover{
 }
 
 
-
 .item img{
 
     width:100%;
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
 
     display:block;
 
@@ -273,7 +262,6 @@ nav a:hover{
     transition:.7s;
 
 }
-
 
 
 .title{
@@ -301,7 +289,6 @@ nav a:hover{
 }
 
 
-
 .item:hover img{
 
     filter:grayscale(0);
@@ -309,7 +296,6 @@ nav a:hover{
     transform:scale(1.08);
 
 }
-
 
 
 .item:hover .title{
@@ -322,97 +308,280 @@ nav a:hover{
 
 
 
+/* ==========================
+   REELS SECTION
+========================== */
 
+
+.reels-section{
+
+    padding:80px 25px;
+
+}
+
+
+.reels-title{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    letter-spacing:5px;
+
+    margin-bottom:40px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+.reels-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:18px;
+
+}
+
+
+
+.reel{
+
+    position:relative;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    aspect-ratio:9/16;
+
+    background:#111;
+
+}
+
+
+
+.reel video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.6s;
+
+}
+
+
+
+.reel::after{
+
+    content:"VIEW REEL";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.45);
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+
+
+.reel:hover video{
+
+    transform:scale(1.08);
+
+}
+
+
+.reel:hover::after{
+
+    opacity:1;
+
+}
 
 /* ==========================
    CONTACT
 ========================== */
 
+
 .contact {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 8%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:120px 8%;
+
 }
+
+
 
 .contact h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1;
+
+    font-size:clamp(2.5rem,6vw,5rem);
+
+    font-weight:800;
+
+    margin-bottom:20px;
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
 }
+
+
 
 .contact-subtitle {
-    font-size: 1rem;
-    opacity: 0.7;
-    max-width: 700px;
-    line-height: 1.8;
-    margin-bottom: 80px;
+
+    font-size:1rem;
+
+    opacity:.7;
+
+    max-width:700px;
+
+    line-height:1.8;
+
+    margin-bottom:120px;
+
 }
+
+
 
 .contact-block {
-    margin-bottom: 40px;
+
+    margin-bottom:50px;
+
 }
 
+
+
 .contact-block h3 {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+    letter-spacing:3px;
+
+    opacity:.5;
+
+    text-transform:uppercase;
+
 }
+
+
 
 .contact-block p,
 .contact-block a {
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+
+    font-size:1rem;
+
+    color:white;
+
+    text-decoration:none;
+
+    opacity:.8;
+
+    transition:.3s;
+
 }
+
+
 
 .contact-block a:hover {
-    opacity: 1;
+
+    opacity:1;
+
 }
+
+
+
+
+/* SOCIAL ICONS */
+
 
 .social-links {
-    display: flex;
-    gap: 24px;
+
+    display:flex;
+
+    gap:24px;
+
+    align-items:center;
+
 }
+
 
 .social-links a {
-    font-size: 1rem;
+
+    color:white;
+
+    opacity:.7;
+
+    transition:.3s ease;
+
 }
 
-.social-links {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-}
 
-.social-links a {
-    color: white;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
 
 .social-links a:hover {
-    opacity: 1;
-    transform: translateY(-2px);
+
+    opacity:1;
+
+    transform:translateY(-3px);
+
 }
 
+
+
 .social-links svg {
-    width: 28px;
-    height: 28px;
-    display: block;
+
+    width:28px;
+
+    height:28px;
+
+    display:block;
+
 }
+
+
+
+
 
 /* ==========================
    POPUP GALLERY
 ========================== */
 
 
-.popup{
+.popup {
 
     position:fixed;
 
@@ -432,7 +601,7 @@ nav a:hover{
 
 
 
-.back-btn{
+.back-btn {
 
     position:fixed;
 
@@ -458,7 +627,7 @@ nav a:hover{
 
 
 
-.back-btn:hover{
+.back-btn:hover {
 
     opacity:.6;
 
@@ -466,7 +635,7 @@ nav a:hover{
 
 
 
-.popup-images{
+.popup-images {
 
     width:100%;
 
@@ -482,7 +651,7 @@ nav a:hover{
 
 
 
-.popup-images img{
+.popup-images img {
 
     width:90%;
 
@@ -497,6 +666,45 @@ nav a:hover{
 
 
 
+
+/* ==========================
+   IMAGE FADE ANIMATION
+========================== */
+
+
+.item {
+
+    animation:fadeUp .8s ease forwards;
+
+}
+
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
 /* ==========================
    MOBILE
 ========================== */
@@ -505,7 +713,7 @@ nav a:hover{
 @media(max-width:900px){
 
 
-.sidebar{
+.sidebar {
 
     position:relative;
 
@@ -517,7 +725,7 @@ nav a:hover{
 
 
 
-.content{
+.content {
 
     margin-left:0;
 
@@ -527,7 +735,7 @@ nav a:hover{
 
 
 
-nav{
+nav {
 
     padding:40px 0;
 
@@ -535,7 +743,7 @@ nav{
 
 
 
-.gallery{
+.gallery {
 
     grid-template-columns:1fr;
 
@@ -543,9 +751,67 @@ nav{
 
 
 
-.hero-text h1{
+.hero-text h1 {
 
     font-size:40px;
+
+    letter-spacing:5px;
+
+}
+
+
+
+.reels-section {
+
+    padding:60px 20px;
+
+}
+
+
+
+.reels-title {
+
+    font-size:28px;
+
+}
+
+
+
+.reels-container {
+
+    display:flex;
+
+    overflow-x:auto;
+
+    gap:15px;
+
+    scroll-snap-type:x mandatory;
+
+}
+
+
+
+.reel {
+
+    flex:0 0 75%;
+
+    scroll-snap-align:start;
+
+}
+
+
+
+.contact {
+
+    padding:80px 25px;
+
+}
+
+
+
+.contact-subtitle {
+
+    margin-bottom:70px;
 
 }
 
