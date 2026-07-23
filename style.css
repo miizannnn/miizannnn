@@ -986,11 +986,3 @@ nav{
 }
 
 
-
-/* DEFAULT OPEN STATE */
-
-.sidebar.closed{
-
-    transform:translateX(-100%);
-
-}
