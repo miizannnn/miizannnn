@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,80 +21,61 @@
 <body>
 
 
-<!-- LEFT SIDEBAR -->
+<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
-
     <div class="logo">
-
         <img src="images/logo.png" alt="MIIZANNNN">
-
     </div>
-
 
 
     <nav>
 
         <a href="#about">About</a>
-
         <a href="#portfolio">Portfolio</a>
-
         <a href="#contact">Contact</a>
 
     </nav>
-
 
 </aside>
 
 
 
 
-
-<!-- RIGHT CONTENT -->
+<!-- CONTENT -->
 
 <main class="content">
 
 
 
-
-
 <!-- HERO -->
-
 
 <section id="about" class="hero">
 
 
-    <video autoplay muted loop playsinline>
+<video autoplay muted loop playsinline preload="metadata">
 
-        <source src="images/background.mp4" type="video/mp4">
+    <source src="images/background.mp4" type="video/mp4">
 
-    </video>
-
-
-
-    <div class="hero-overlay"></div>
+</video>
 
 
-
-    <div class="hero-text">
-
-
-        <h1>MIIZANNNN</h1>
+<div class="hero-overlay"></div>
 
 
-        <p>
-            Photographer & Videographer
-        </p>
+<div class="hero-text">
 
+    <h1>MIIZANNNN</h1>
 
-    </div>
+    <p>
+        Photographer & Videographer
+    </p>
+
+</div>
 
 
 </section>
-
-
-
 
 
 
@@ -106,445 +87,117 @@
 <section id="portfolio">
 
 
-
 <div class="gallery">
 
 
+<div class="item" onclick="openGallery('laferrari')">
 
-    <div class="item" onclick="openGallery('laferrari')">
+<img src="images/cars/la-ferrari/cover.jpg" alt="La Ferrari">
 
+<div class="title">
+La Ferrari Aperta
+</div>
 
-        <img src="images/cars/la-ferrari/cover.jpg" alt="La Ferrari">
+</div>
 
 
-        <div class="title">
-            La Ferrari Aperta
-        </div>
 
+<div class="item" onclick="openGallery('stoevo2')">
 
-    </div>
+<img src="images/cars/lamborghini-sto-evo2/cover.jpg" alt="Lamborghini STO EVO II">
 
-
-
-
-
-    <div class="item" onclick="openGallery('stoevo2')">
-
-
-        <img src="images/cars/lamborghini-sto-evo2/cover.jpg" alt="Lamborghini STO EVO II">
-
-
-        <div class="title">
-            Lamborghini Huracan STO EVO II
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('carrerasc')">
-
-
-        <img src="images/cars/porsche-carrera-sc-hwa/cover.jpg" alt="Porsche Carrera SC">
-
-
-        <div class="title">
-            Porsche 911 IROC inspired
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('r34')">
-
-
-        <img src="images/cars/nissan-gtr-r34/cover.jpg" alt="Nissan GT-R R34">
-
-
-        <div class="title">
-            GTR-R34 Kaido House SILGTR
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('rirana')">
-
-
-        <img src="images/cars/rirana/cover.jpg" alt="Rirana">
-
-
-        <div class="title">
-            Rirana's Collection
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('ferrari296')">
-
-
-        <img src="images/cars/ferrari-296-gtb/cover.jpg" alt="Ferrari 296 GTB">
-
-
-        <div class="title">
-            Ferrari 296 GTB
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('gt3')">
-
-
-        <img src="images/cars/porsche-gt3/cover.jpg" alt="Porsche GT3">
-
-
-        <div class="title">
-            Porsche GT3
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('purosangue')">
-
-
-        <img src="images/cars/ferrari-purosangue/cover.jpg" alt="Ferrari Purosangue">
-
-
-        <div class="title">
-            Ferrari Purosangue
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="item" onclick="openGallery('turbos')">
-
-
-        <img src="images/cars/porsche-turbo-s/cover.jpg" alt="Porsche Turbo S">
-
-
-        <div class="title">
-            Porsche Turbo S
-        </div>
-
-
-    </div>
-
-
+<div class="title">
+Lamborghini Huracan STO EVO II
+</div>
 
 </div>
 
 
 
 
+<div class="item" onclick="openGallery('carrerasc')">
 
-<!-- REELS DIRECTLY UNDER ALBUMS -->
+<img src="images/cars/porsche-carrera-sc-hwa/cover.jpg" alt="Porsche Carrera SC">
 
-
-<div class="desktop-reels">
-
-
-    <div class="reel-card">
-
-    <video autoplay muted loop playsinline>
-    <source src="reels/reels1.mp4" type="video/mp4">
-</video>
-
-    </div>
-
-
-
-    <div class="reel-card">
-
-       <video autoplay muted loop playsinline>
-    <source src="reels/reels2.mp4" type="video/mp4">
-</video>
-
-    </div>
-
-
-
-
-    <div class="reel-card featured">
-
-       <video autoplay muted loop playsinline>
-    <source src="reels/reels3.mp4" type="video/mp4">
-</video>
-
-    </div>
-
-
-
-
-    <div class="reel-card">
-
-       <video autoplay muted loop playsinline>
-    <source src="reels/reels4.mp4" type="video/mp4">
-</video>
-
-    </div>
-
-
-
-
-    <div class="reel-card">
-
-        <video autoplay muted loop playsinline>
-    <source src="reels/reels5.mp4" type="video/mp4">
-</video>
-
-    </div>
-
+<div class="title">
+Porsche 911 IROC inspired
+</div>
 
 </div>
 
 
 
 
-<!-- MOBILE REELS -->
+<div class="item" onclick="openGallery('r34')">
 
+<img src="images/cars/nissan-gtr-r34/cover.jpg" alt="Nissan GT-R R34">
 
-<div class="mobile-reels">
-
-
-    <div class="mobile-reel">
-
-        <video src="reels/reels1.mp4" controls playsinline></video>
-
-    </div>
-
-
-
-    <div class="mobile-reel">
-
-        <video src="reels/reels2.mp4" controls playsinline></video>
-
-    </div>
-
-
-
-    <div class="mobile-reel">
-
-        <video src="reels/reels3.mp4" controls playsinline></video>
-
-    </div>
-
-
-
-    <div class="mobile-reel">
-
-        <video src="reels/reels4.mp4" controls playsinline></video>
-
-    </div>
-
-
-
-    <div class="mobile-reel">
-
-        <video src="reels/reels5.mp4" controls playsinline></video>
-
-    </div>
-
+<div class="title">
+GTR-R34 Kaido House SILGTR
+</div>
 
 </div>
 
 
-</section>
 
-    <!-- CONTACT -->
+<div class="item" onclick="openGallery('rirana')">
 
+<img src="images/cars/rirana/cover.jpg" alt="Rirana">
 
-<section id="contact" class="contact">
-
-
-    <h1>
-        LET'S MAKE SOMETHING COOL
-    </h1>
-
-
-
-    <p class="contact-subtitle">
-
-        Whether it's photography, video, design,
-        or just an idea you'd like to bring to life,
-        I'd love to hear about it.
-
-    </p>
-
-
-
-
-    <div class="contact-info">
-
-
-
-        <div class="contact-block">
-
-
-            <h3>PHONE</h3>
-
-
-            <p>
-                +60 13 2600 738
-            </p>
-
-
-        </div>
-
-
-
-
-
-        <div class="contact-block">
-
-
-            <h3>EMAIL</h3>
-
-
-            <p>
-
-                <a href="mailto:mzulhamizanhailmi@gmail.com">
-
-                    mzulhamizanhailmi@gmail.com
-
-                </a>
-
-            </p>
-
-
-        </div>
-
-
-
-
-
-        <div class="contact-block">
-
-
-            <h3>FOLLOW</h3>
-
-
-
-
-            <div class="social-links">
-
-
-
-                <a href="https://www.instagram.com/miizannnn/" target="_blank" aria-label="Instagram">
-
-
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-
-                        <path d="M7 2C4.2 2 2 4.2 2 7V17C2 19.8 4.2 22 7 22H17C19.8 22 22 19.8 22 17V7C22 4.2 19.8 2 17 2H7ZM12 7C14.8 7 17 9.2 17 12C17 14.8 14.8 17 12 17C9.2 17 7 14.8 7 12C7 9.2 9.2 7 12 7ZM18 5.5C18.8 5.5 19.5 6.2 19.5 7C19.5 7.8 18.8 8.5 18 8.5C17.2 8.5 16.5 7.8 16.5 7C16.5 6.2 17.2 5.5 18 5.5ZM12 9C10.3 9 9 10.3 9 12C9 13.7 10.3 15 12 15C13.7 15 15 13.7 15 12C15 10.3 13.7 9 12 9Z"/>
-
-                    </svg>
-
-
-                </a>
-
-
-
-
-
-                <a href="https://www.cosmos.so/wickedd/collections" target="_blank" aria-label="Cosmos">
-
-
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-
-                        <path d="M12 2L21 7V17L12 22L3 17V7L12 2ZM12 4.3L5 8.2V15.8L12 19.7L19 15.8V8.2L12 4.3Z"/>
-
-                    </svg>
-
-
-                </a>
-
-
-
-            </div>
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-</section>
-
-
-
-
-
-
-</main>
-
-
-
-
-
-
-<!-- POPUP -->
-
-
-<div id="popup" class="popup">
-
-
-    <button class="back-btn" onclick="closeGallery()">
-
-        ← Back
-
-    </button>
-
-
-
-    <div id="popup-images" class="popup-images"></div>
-
-
+<div class="title">
+Rirana's Collection
+</div>
 
 </div>
 
 
 
 
+<div class="item" onclick="openGallery('ferrari296')">
+
+<img src="images/cars/ferrari-296-gtb/cover.jpg" alt="Ferrari 296 GTB">
+
+<div class="title">
+Ferrari 296 GTB
+</div>
+
+</div>
 
 
 
+<div class="item" onclick="openGallery('gt3')">
 
-<script src="script.js"></script>
+<img src="images/cars/porsche-gt3/cover.jpg" alt="Porsche GT3">
+
+<div class="title">
+Porsche GT3
+</div>
+
+</div>
 
 
-</body>
 
-</html>
+<div class="item" onclick="openGallery('purosangue')">
+
+<img src="images/cars/ferrari-purosangue/cover.jpg" alt="Ferrari Purosangue">
+
+<div class="title">
+Ferrari Purosangue
+</div>
+
+</div>
+
+
+
+<div class="item" onclick="openGallery('turbos')">
+
+<img src="images/cars/porsche-turbo-s/cover.jpg" alt="Porsche Turbo S">
+
+<div class="title">
+Porsche Turbo S
+</div>
+
+</div>
+
+
+</div>
