@@ -79,7 +79,6 @@ body{
 
 
 
-
 .logo img{
 
     width:100px;
@@ -105,7 +104,6 @@ nav{
     gap:25px;
 
 }
-
 
 
 
@@ -144,7 +142,7 @@ nav a:hover{
 
 
 /* ==========================
-   SIDEBAR TOGGLE BUTTON
+   SIDEBAR BUTTON
 ========================== */
 
 
@@ -214,6 +212,21 @@ nav a:hover{
     transition:.5s ease;
 
 }
+
+
+
+.content.open{
+
+    margin-left:20%;
+
+    width:80%;
+
+}
+
+
+
+
+
 /* ==========================
    HERO
 ========================== */
@@ -228,7 +241,6 @@ nav a:hover{
     overflow:hidden;
 
 }
-
 
 
 
@@ -258,8 +270,6 @@ nav a:hover{
 
 
 
-
-
 .hero-text{
 
     position:absolute;
@@ -280,8 +290,6 @@ nav a:hover{
 
 
 
-
-
 .hero-text h1{
 
     font-size:clamp(2.5rem,6vw,5rem);
@@ -294,7 +302,6 @@ nav a:hover{
 
 
 
-
 .hero-text p{
 
     margin-top:20px;
@@ -304,11 +311,6 @@ nav a:hover{
     letter-spacing:4px;
 
 }
-
-
-
-
-
 /* ==========================
    GALLERY
 ========================== */
@@ -328,8 +330,6 @@ nav a:hover{
 
 
 
-
-
 .item{
 
     position:relative;
@@ -339,8 +339,6 @@ nav a:hover{
     cursor:pointer;
 
 }
-
-
 
 
 
@@ -359,8 +357,6 @@ nav a:hover{
     transition:.7s;
 
 }
-
-
 
 
 
@@ -390,8 +386,6 @@ nav a:hover{
 
 
 
-
-
 .item:hover img{
 
     filter:grayscale(0);
@@ -399,8 +393,6 @@ nav a:hover{
     transform:scale(1.08);
 
 }
-
-
 
 
 
@@ -415,7 +407,7 @@ nav a:hover{
 
 
 /* ==========================
-   DESKTOP REELS
+   REELS DESKTOP
 ========================== */
 
 
@@ -470,6 +462,107 @@ nav a:hover{
 
 
 /* ==========================
+   REEL CONTROLS
+========================== */
+
+
+.reel-controls{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    opacity:0;
+
+    transition:.3s ease;
+
+    z-index:20;
+
+}
+
+
+
+.reel-card:hover .reel-controls{
+
+    opacity:1;
+
+}
+
+
+
+.control-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+.progress-bar{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:rgba(255,255,255,.25);
+
+    z-index:20;
+
+}
+
+
+
+.progress{
+
+    width:0%;
+
+    height:100%;
+
+    background:white;
+
+}
+
+
+
+
+
+/* ==========================
    MOBILE REELS
 ========================== */
 
@@ -484,55 +577,41 @@ nav a:hover{
 
 
 
-/* ==========================
-   SOUND BUTTON
-========================== */
+.mobile-reel{
+
+    position:relative;
+
+}
 
 
-.sound-btn{
 
-    position:absolute;
+.mobile-reel .reel-controls{
 
-    bottom:15px;
+    top:15px;
 
     right:15px;
 
-    width:38px;
+}
 
-    height:38px;
 
-    border-radius:50%;
 
-    border:1px solid rgba(255,255,255,.25);
+.mobile-reel video{
 
-    background:rgba(0,0,0,.45);
+    width:100%;
 
-    backdrop-filter:blur(10px);
+    height:100%;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    cursor:pointer;
-
-    z-index:10;
-
-    transition:.3s ease;
+    object-fit:cover;
 
 }
 
 
 
-.sound-btn:hover{
 
-    background:rgba(255,255,255,.15);
 
-    transform:scale(1.08);
-
-}
-
+/* ==========================
+   SOUND ICON
+========================== */
 
 
 .sound-icon{
@@ -605,7 +684,6 @@ nav a:hover{
 
 
 
-
 .contact h1{
 
     font-size:clamp(2.5rem,6vw,5rem);
@@ -617,7 +695,6 @@ nav a:hover{
     margin-bottom:20px;
 
 }
-
 
 
 
@@ -635,15 +712,11 @@ nav a:hover{
 
 
 
-
-
 .contact-block{
 
     margin-bottom:50px;
 
 }
-
-
 
 
 
@@ -658,8 +731,6 @@ nav a:hover{
     margin-bottom:12px;
 
 }
-
-
 
 
 
@@ -728,7 +799,6 @@ nav a:hover{
 
 
 
-
 .back-btn{
 
     position:fixed;
@@ -763,8 +833,6 @@ nav a:hover{
 
 
 
-
-
 .popup-images img{
 
     width:90%;
@@ -783,6 +851,7 @@ nav a:hover{
 
 
 @media(max-width:900px){
+
 
 
 .sidebar{
@@ -810,6 +879,7 @@ nav a:hover{
     transform:translateX(0);
 
 }
+
 
 
 
@@ -864,11 +934,21 @@ nav{
 
 
 
+/* MOBILE HERO 4:5 */
+
 .hero{
 
     height:auto;
 
-    aspect-ratio:16/9;
+    aspect-ratio:4/5;
+
+}
+
+
+
+.hero video{
+
+    object-fit:cover;
 
 }
 
@@ -883,8 +963,6 @@ nav{
     letter-spacing:5px;
 
 }
-
-
 
 
 
@@ -928,8 +1006,6 @@ nav{
 
 .mobile-reel{
 
-    position:relative;
-
     flex:0 0 220px;
 
     aspect-ratio:9/16;
@@ -938,19 +1014,27 @@ nav{
 
     scroll-snap-align:center;
 
+    transition:.4s ease;
+
 }
 
 
 
 
 
-.mobile-reel video{
+.mobile-reel.active{
 
-    width:100%;
+    transform:scaleY(1.08);
 
-    height:100%;
+}
 
-    object-fit:cover;
+
+
+
+
+.mobile-reel .reel-controls{
+
+    opacity:1;
 
 }
 
@@ -966,11 +1050,16 @@ nav{
 
 
 
-}
+
+
 .content.open{
 
-    margin-left:20%;
+    margin-left:0;
 
-    width:80%;
+    width:100%;
+
+}
+
+
 
 }
