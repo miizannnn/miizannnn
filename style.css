@@ -457,9 +457,10 @@ nav a:hover {
   .mobile-reels {
     display: flex;
     gap: 12px;
-    padding: 60px 12%; /* Leaves space to reveal previous/next reels on sides */
+    padding: 60px 11vw; /* Leaves space to reveal previous/next reels on sides */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 11vw; /* CRITICAL: Allows Reels 1 & 5 to snap dead center */
     -webkit-overflow-scrolling: touch;
   }
 
