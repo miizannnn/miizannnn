@@ -2,658 +2,345 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MIIZANNNN | Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIIZANNNN | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
-<!-- SIDEBAR -->
-
-<aside class="sidebar closed">
-
+  <!-- SIDEBAR -->
+  <aside class="sidebar closed">
     <div class="logo">
-        <img src="images/logo.png" alt="MIIZANNNN">
+      <img src="images/logo.png" alt="MIIZANNNN">
     </div>
 
-
     <nav>
-
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
     </nav>
-
-</aside>
-
-
-
-<button class="sidebar-toggle" id="sidebarToggle">
-
-<span></span>
-<span></span>
-<span></span>
-
-</button>
-
-
-
-
-<!-- CONTENT -->
-
-<main class="content">
-
-
-
-<!-- HERO -->
-
-<section id="about" class="hero">
-
-
-<video autoplay muted loop playsinline preload="metadata">
-
-    <source src="images/background.mp4" type="video/mp4">
-
-</video>
-
-
-
-<div class="hero-overlay"></div>
-
-
-
-<div class="hero-text">
-
-    <h1>MIIZANNNN</h1>
-
-    <p>
-        Photographer & Videographer
-    </p>
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- PORTFOLIO -->
-
-
-<section id="portfolio">
-
-
-<div class="gallery">
-
-
-
-<div class="item" onclick="openGallery('laferrari')">
-
-<img src="images/cars/la-ferrari/cover.jpg">
-
-<div class="title">
-La Ferrari Aperta
-</div>
-
-</div>
-
-
-
-
-<div class="item" onclick="openGallery('stoevo2')">
-
-<img src="images/cars/lamborghini-sto-evo2/cover.jpg">
-
-<div class="title">
-Lamborghini Huracan STO EVO II
-</div>
-
-</div>
-
-
-
-
-
-<div class="item" onclick="openGallery('carrerasc')">
-
-<img src="images/cars/porsche-carrera-sc-hwa/cover.jpg">
-
-<div class="title">
-Porsche 911 IROC inspired
-</div>
-
-</div>
-
-
-
-
-
-<div class="item" onclick="openGallery('r34')">
-
-<img src="images/cars/nissan-gtr-r34/cover.jpg">
-
-<div class="title">
-GTR-R34 Kaido House SILGTR
-</div>
-
-</div>
-
-
-
-
-
-<div class="item" onclick="openGallery('rirana')">
-
-<img src="images/cars/rirana/cover.jpg">
-
-<div class="title">
-Rirana's Collection
-</div>
-
-</div>
-
-
-
-
-<div class="item" onclick="openGallery('ferrari296')">
-
-<img src="images/cars/ferrari-296-gtb/cover.jpg">
-
-<div class="title">
-Ferrari 296 GTB
-</div>
-
-</div>
-
-
-
-
-
-<div class="item" onclick="openGallery('gt3')">
-
-<img src="images/cars/porsche-gt3/cover.jpg">
-
-<div class="title">
-Porsche GT3
-</div>
-
-</div>
-
-
-
-
-<div class="item" onclick="openGallery('purosangue')">
-
-<img src="images/cars/ferrari-purosangue/cover.jpg">
-
-<div class="title">
-Ferrari Purosangue
-</div>
-
-</div>
-
-
-
-
-<div class="item" onclick="openGallery('turbos')">
-
-<img src="images/cars/porsche-turbo-s/cover.jpg">
-
-<div class="title">
-Porsche Turbo S
-</div>
-
-</div>
-
-
-
-</div>
-<!-- ==========================
-     DESKTOP REELS
-========================== -->
-
-<div class="desktop-reels">
-
-
-<div class="reel-card">
-
-
-<video autoplay muted loop playsinline preload="metadata">
-
-<source src="reels/reels1.mp4" type="video/mp4">
-
-</video>
-
-
-<button class="play-btn">
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5V19L19 12L8 5Z"/>
-</svg>
-
-</button>
-
-
-
-<button class="sound-btn">
-
-<svg viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-</button>
-
-
-<div class="progress-bar">
-<div class="progress"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="reel-card">
-
-<video autoplay muted loop playsinline preload="metadata">
-
-<source src="reels/reels2.mp4" type="video/mp4">
-
-</video>
-
-
-<button class="play-btn">
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5V19L19 12L8 5Z"/>
-</svg>
-
-</button>
-
-
-<button class="sound-btn">
-
-<svg viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-</button>
-
-
-<div class="progress-bar">
-<div class="progress"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="reel-card">
-
-<video autoplay muted loop playsinline preload="metadata">
-
-<source src="reels/reels3.mp4" type="video/mp4">
-
-</video>
-
-
-<button class="play-btn">
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5V19L19 12L8 5Z"/>
-</svg>
-
-</button>
-
-
-<button class="sound-btn">
-
-<svg viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-</button>
-
-
-<div class="progress-bar">
-<div class="progress"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="reel-card">
-
-<video autoplay muted loop playsinline preload="metadata">
-
-<source src="reels/reels4.mp4" type="video/mp4">
-
-</video>
-
-
-<button class="play-btn">
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5V19L19 12L8 5Z"/>
-</svg>
-
-</button>
-
-
-<button class="sound-btn">
-
-<svg viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-</button>
-
-
-<div class="progress-bar">
-<div class="progress"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="reel-card">
-
-<video autoplay muted loop playsinline preload="metadata">
-
-<source src="reels/reels5.mp4" type="video/mp4">
-
-</video>
-
-
-<button class="play-btn">
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5V19L19 12L8 5Z"/>
-</svg>
-
-</button>
-
-
-<button class="sound-btn">
-
-<svg viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-</button>
-
-
-<div class="progress-bar">
-<div class="progress"></div>
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- ==========================
-     MOBILE REELS
-========================== -->
-
-
-<div class="mobile-reels">
-
-
-<div class="mobile-reel">
-
-<video autoplay muted loop playsinline preload="metadata">
-
-<source src="reels/reels1.mp4" type="video/mp4">
-
-</video>
-
-
-<button class="play-btn">
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5V19L19 12L8 5Z"/>
-</svg>
-
-</button>
-
-
-<button class="sound-btn">
-
-<svg viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-</button>
-
-
-<div class="progress-bar">
-<div class="progress"></div>
-</div>
-
-
-</div>
-
-
-<!-- duplicate mobile-reel structure for reels2-5 -->
-
-
-</div>
-<!-- ==========================
-     CONTACT
-========================== -->
-
-
-<section id="contact" class="contact">
-
-
-<h1>
-LET'S MAKE SOMETHING COOL
-</h1>
-
-
-
-<p class="contact-subtitle">
-
-Whether it's photography, video, design,
-or just an idea you'd like to bring to life,
-I'd love to hear about it.
-
-</p>
-
-
-
-
-<div class="contact-info">
-
-
-
-<div class="contact-block">
-
-<h3>PHONE</h3>
-
-<p>
-+60 13 2600 738
-</p>
-
-</div>
-
-
-
-
-
-<div class="contact-block">
-
-<h3>EMAIL</h3>
-
-<p>
-
-<a href="mailto:mzulhamizanhailmi@gmail.com">
-
-mzulhamizanhailmi@gmail.com
-
-</a>
-
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="contact-block">
-
-
-<h3>FOLLOW</h3>
-
-
-<div class="social-links">
-
-
-
-<a href="https://www.instagram.com/miizannnn/" target="_blank">
-
-<svg viewBox="0 0 24 24" fill="currentColor">
-
-<path d="M7 2C4.2 2 2 4.2 2 7V17C2 19.8 4.2 22 7 22H17C19.8 22 22 19.8 22 17V7C22 4.2 19.8 2 17 2H7Z"/>
-
-</svg>
-
-</a>
-
-
-
-
-<a href="https://www.cosmos.so/wickedd/collections" target="_blank">
-
-<svg viewBox="0 0 24 24" fill="currentColor">
-
-<path d="M12 2L21 7V17L12 22L3 17V7L12 2Z"/>
-
-</svg>
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- ==========================
-     POPUP
-========================== -->
-
-
-<div id="popup" class="popup">
-
-
-<button class="back-btn" onclick="closeGallery()">
-
-← Back
-
-</button>
-
-
-
-<div id="popup-images" class="popup-images"></div>
-
-
-</div>
-
-
-
-
-
-<script src="script.js"></script>
-
-
+  </aside>
+
+  <button class="sidebar-toggle" id="sidebarToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <section id="about" class="hero">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="images/background.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-text">
+        <h1>MIIZANNNN</h1>
+        <p>Photographer & Videographer</p>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="gallery">
+        <div class="item" onclick="openGallery('laferrari')">
+          <img src="images/cars/la-ferrari/cover.jpg" alt="La Ferrari Aperta">
+          <div class="title">La Ferrari Aperta</div>
+        </div>
+
+        <div class="item" onclick="openGallery('stoevo2')">
+          <img src="images/cars/lamborghini-sto-evo2/cover.jpg" alt="Lamborghini Huracan STO EVO II">
+          <div class="title">Lamborghini Huracan STO EVO II</div>
+        </div>
+
+        <div class="item" onclick="openGallery('carrerasc')">
+          <img src="images/cars/porsche-carrera-sc-hwa/cover.jpg" alt="Porsche 911 IROC inspired">
+          <div class="title">Porsche 911 IROC inspired</div>
+        </div>
+
+        <div class="item" onclick="openGallery('r34')">
+          <img src="images/cars/nissan-gtr-r34/cover.jpg" alt="GTR-R34 Kaido House SILGTR">
+          <div class="title">GTR-R34 Kaido House SILGTR</div>
+        </div>
+
+        <div class="item" onclick="openGallery('rirana')">
+          <img src="images/cars/rirana/cover.jpg" alt="Rirana's Collection">
+          <div class="title">Rirana's Collection</div>
+        </div>
+
+        <div class="item" onclick="openGallery('ferrari296')">
+          <img src="images/cars/ferrari-296-gtb/cover.jpg" alt="Ferrari 296 GTB">
+          <div class="title">Ferrari 296 GTB</div>
+        </div>
+
+        <div class="item" onclick="openGallery('gt3')">
+          <img src="images/cars/porsche-gt3/cover.jpg" alt="Porsche GT3">
+          <div class="title">Porsche GT3</div>
+        </div>
+
+        <div class="item" onclick="openGallery('purosangue')">
+          <img src="images/cars/ferrari-purosangue/cover.jpg" alt="Ferrari Purosangue">
+          <div class="title">Ferrari Purosangue</div>
+        </div>
+
+        <div class="item" onclick="openGallery('turbos')">
+          <img src="images/cars/porsche-turbo-s/cover.jpg" alt="Porsche Turbo S">
+          <div class="title">Porsche Turbo S</div>
+        </div>
+      </div>
+
+      <!-- ==========================
+           DESKTOP REELS
+      ========================== -->
+      <div class="desktop-reels">
+        <!-- Reel 1 -->
+        <div class="reel-card">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels1.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Reel 2 -->
+        <div class="reel-card">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels2.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Reel 3 -->
+        <div class="reel-card">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels3.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Reel 4 -->
+        <div class="reel-card">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels4.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Reel 5 -->
+        <div class="reel-card">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels5.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+      </div>
+
+      <!-- ==========================
+           MOBILE REELS (5 REELS)
+      ========================== -->
+      <div class="mobile-reels">
+        <!-- Mobile Reel 1 -->
+        <div class="mobile-reel">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels1.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Mobile Reel 2 -->
+        <div class="mobile-reel">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels2.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Mobile Reel 3 -->
+        <div class="mobile-reel">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels3.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Mobile Reel 4 -->
+        <div class="mobile-reel">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels4.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+
+        <!-- Mobile Reel 5 -->
+        <div class="mobile-reel">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="reels/reels5.mp4" type="video/mp4">
+          </video>
+          <div class="reel-controls">
+            <button class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
+            </button>
+            <button class="sound-btn muted">
+              <svg class="sound-icon" viewBox="0 0 24 24">
+                <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
+                <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h1>LET'S MAKE SOMETHING COOL</h1>
+      <p class="contact-subtitle">
+        Whether it's photography, video, design, or just an idea you'd like to bring to life, I'd love to hear about it.
+      </p>
+
+      <div class="contact-info">
+        <div class="contact-block">
+          <h3>PHONE</h3>
+          <p>+60 13 2600 738</p>
+        </div>
+
+        <div class="contact-block">
+          <h3>EMAIL</h3>
+          <p><a href="mailto:mzulhamizanhailmi@gmail.com">mzulhamizanhailmi@gmail.com</a></p>
+        </div>
+
+        <div class="contact-block">
+          <h3>FOLLOW</h3>
+          <div class="social-links">
+            <a href="https://www.instagram.com/miizannnn/" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 2C4.2 2 2 4.2 2 7V17C2 19.8 4.2 22 7 22H17C19.8 22 22 19.8 22 17V7C22 4.2 19.8 2 17 2H7Z"/>
+              </svg>
+            </a>
+            <a href="https://www.cosmos.so/wickedd/collections" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L21 7V17L12 22L3 17V7L12 2Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPUP -->
+    <div id="popup" class="popup">
+      <button class="back-btn" onclick="closeGallery()">← Back</button>
+      <div id="popup-images" class="popup-images"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
