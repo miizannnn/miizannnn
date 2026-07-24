@@ -2,24 +2,28 @@
 // PREVENT AUTO SCROLL / HASH JUMP
 // ==========================
 
-if (history.scrollRestoration) {
+if(history.scrollRestoration){
 
-    history.scrollRestoration = "manual";
+    history.scrollRestoration="manual";
 
 }
 
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    if (window.location.hash) {
 
-        history.replaceState(null, null, " ");
+    if(window.location.hash){
+
+        history.replaceState(null,null," ");
 
     }
 
+
     window.scrollTo(0,0);
 
+
 });
+
 
 
 
@@ -31,8 +35,9 @@ window.addEventListener("load", () => {
 // ==========================
 
 
-const sections = document.querySelectorAll("section");
-const links = document.querySelectorAll("nav a");
+const sections=document.querySelectorAll("section");
+
+const links=document.querySelectorAll("nav a");
 
 
 
@@ -45,12 +50,12 @@ window.addEventListener("scroll",()=>{
     sections.forEach(section=>{
 
 
-        const sectionTop = section.offsetTop - 200;
+        const sectionTop=section.offsetTop-200;
 
 
         if(window.scrollY >= sectionTop){
 
-            current = section.id;
+            current=section.id;
 
         }
 
@@ -100,13 +105,16 @@ const observer=new IntersectionObserver((entries)=>{
 entries.forEach(entry=>{
 
 
-if(entry.isIntersecting){
+    if(entry.isIntersecting){
 
-entry.target.style.opacity="1";
 
-entry.target.style.transform="translateY(0)";
+        entry.target.style.opacity="1";
 
-}
+        entry.target.style.transform="translateY(0)";
+
+
+    }
+
 
 
 });
@@ -120,17 +128,18 @@ entry.target.style.transform="translateY(0)";
 items.forEach(item=>{
 
 
-item.style.opacity="0";
+    item.style.opacity="0";
 
-item.style.transform="translateY(40px)";
+    item.style.transform="translateY(40px)";
 
-item.style.transition=".8s ease";
+    item.style.transition=".8s ease";
 
 
-observer.observe(item);
+    observer.observe(item);
 
 
 });
+
 
 
 
@@ -150,30 +159,34 @@ window.addEventListener("load",()=>{
 const hero=document.querySelector(".hero-text");
 
 
+
 if(hero){
 
 
-hero.style.opacity="0";
+    hero.style.opacity="0";
 
-hero.style.transform="translateY(30px)";
-
-
-
-setTimeout(()=>{
+    hero.style.transform="translateY(30px)";
 
 
-hero.style.transition="1s ease";
 
-hero.style.opacity="1";
-
-hero.style.transform="translateY(0)";
+    setTimeout(()=>{
 
 
-},300);
+        hero.style.transition="1s ease";
 
+
+        hero.style.opacity="1";
+
+
+        hero.style.transform="translateY(0)";
+
+
+
+    },300);
 
 
 }
+
 
 
 });
@@ -191,133 +204,163 @@ hero.style.transform="translateY(0)";
 // ==========================
 
 
-const reelCards = document.querySelectorAll(
-    ".reel-card, .mobile-reel"
+const reelCards=document.querySelectorAll(
+".reel-card, .mobile-reel"
 );
+
+
+
+let allVideos=[];
 
 
 
 reelCards.forEach(card=>{
 
 
-const video = card.querySelector("video");
+const video=card.querySelector("video");
 
 
 if(!video) return;
 
 
 
-
-
-// CREATE CONTROLS
-
-
-const controls=document.createElement("div");
-
-controls.className="reel-controls";
+allVideos.push(video);
 
 
 
-const playBtn=document.createElement("button");
 
-playBtn.className="control-btn play-btn";
-
-playBtn.innerHTML="▶";
+// buttons already exist in HTML
 
 
+const playBtn=card.querySelector(".play-btn");
 
-const muteBtn=document.createElement("button");
-
-muteBtn.className="control-btn mute-control";
-
-muteBtn.innerHTML=`
-
-<svg class="sound-icon" viewBox="0 0 24 24">
-
-<path class="speaker"
-d="M11 5L6 9H2V15H6L11 19V5Z"/>
-
-<path class="wave"
-d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
-
-</svg>
-
-`;
+const soundBtn=card.querySelector(".sound-btn");
 
 
-
-controls.appendChild(playBtn);
-
-controls.appendChild(muteBtn);
-
-
-
-card.appendChild(controls);
+const progress=
+card.querySelector(".progress");
 
 
 
 
 
 
-
-// PROGRESS BAR
-
-
-const progressBar=document.createElement("div");
-
-progressBar.className="progress-bar";
-
-
-
-const progress=document.createElement("div");
-
-progress.className="progress";
-
-
-
-progressBar.appendChild(progress);
-
-
-card.appendChild(progressBar);
-
-
-
-
-
-
-
-
-// DEFAULT
+// default muted
 
 
 video.muted=true;
 
 
+soundBtn.classList.add("muted");
 
 
 
 
-// PLAY / PAUSE
+
+
+
+
+// PLAY BUTTON
 
 
 playBtn.addEventListener("click",()=>{
 
 
-if(video.paused){
+    if(video.paused){
 
 
-video.play();
-
-playBtn.innerHTML="❚❚";
+        video.play();
 
 
+    }
+    else{
 
-}else{
+
+        video.pause();
 
 
-video.pause();
+    }
 
-playBtn.innerHTML="▶";
+
+});
+
+
+
+
+
+
+// update play icon
+
+
+video.addEventListener("play",()=>{
+
+
+playBtn.innerHTML=`
+
+<svg class="play-icon" viewBox="0 0 24 24">
+
+<path d="M8 5V19L19 12L8 5Z"/>
+
+</svg>`;
+
+
+});
+
+
+
+
+
+video.addEventListener("pause",()=>{
+
+
+playBtn.innerHTML=`
+
+<svg class="play-icon" viewBox="0 0 24 24">
+
+<path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/>
+
+</svg>`;
+
+
+});
+
+
+
+
+
+
+
+
+// MUTE BUTTON
+
+
+soundBtn.addEventListener("click",()=>{
+
+
+// mute all other videos
+
+
+allVideos.forEach(other=>{
+
+
+if(other!==video){
+
+
+other.muted=true;
+
+
+
+const otherBtn=
+other.parentElement.querySelector(".sound-btn");
+
+
+
+if(otherBtn){
+
+otherBtn.classList.add("muted");
+
+}
+
 
 
 }
@@ -330,13 +373,7 @@ playBtn.innerHTML="▶";
 
 
 
-
-
-
-// MUTE
-
-
-muteBtn.addEventListener("click",()=>{
+// toggle current
 
 
 video.muted=!video.muted;
@@ -346,13 +383,14 @@ video.muted=!video.muted;
 if(video.muted){
 
 
-muteBtn.classList.add("muted");
+soundBtn.classList.add("muted");
 
 
-}else{
+}
+else{
 
 
-muteBtn.classList.remove("muted");
+soundBtn.classList.remove("muted");
 
 
 }
@@ -366,10 +404,7 @@ muteBtn.classList.remove("muted");
 
 
 
-
-
-
-// PROGRESS UPDATE
+// progress bar
 
 
 video.addEventListener("timeupdate",()=>{
@@ -378,16 +413,15 @@ video.addEventListener("timeupdate",()=>{
 if(video.duration){
 
 
-let percent =
-(video.currentTime / video.duration) * 100;
+let percent=
+(video.currentTime/video.duration)*100;
 
 
 
-progress.style.width = percent + "%";
+progress.style.width=percent+"%";
 
 
 }
-
 
 
 });
@@ -396,16 +430,8 @@ progress.style.width = percent + "%";
 
 
 
-
-
-
-// RESET
-
-
 video.addEventListener("ended",()=>{
 
-
-playBtn.innerHTML="▶";
 
 progress.style.width="0%";
 
@@ -420,66 +446,65 @@ progress.style.width="0%";
 // ==========================
 
 
-const reelVideos = document.querySelectorAll(
-    ".reel-card video, .mobile-reel video"
+const reelVideos=document.querySelectorAll(
+".reel-card video, .mobile-reel video"
 );
 
 
 
-const reelObserver = new IntersectionObserver((entries)=>{
+const reelObserver=new IntersectionObserver((entries)=>{
 
 
-    entries.forEach(entry=>{
+entries.forEach(entry=>{
 
 
-        const video = entry.target;
+const video=entry.target;
 
 
-        const muteBtn = video.parentElement.querySelector(".mute-control");
-
-
-        if(entry.isIntersecting){
-
-
-            video.play();
-
-
-        }
-
-        else{
-
-
-            video.muted = true;
-
-
-            if(muteBtn){
-
-                muteBtn.classList.add("muted");
-
-            }
-
-
-        }
+const soundBtn=
+video.parentElement.querySelector(".sound-btn");
 
 
 
-    });
+if(entry.isIntersecting){
 
+
+    video.play();
+
+
+}
+else{
+
+
+    video.muted=true;
+
+
+    if(soundBtn){
+
+        soundBtn.classList.add("muted");
+
+    }
+
+
+}
+
+
+
+});
 
 
 },{
 
-    threshold:0.5
+threshold:0.5
 
 });
-
 
 
 
 reelVideos.forEach(video=>{
 
 
-    reelObserver.observe(video);
+reelObserver.observe(video);
 
 
 });
@@ -491,21 +516,22 @@ reelVideos.forEach(video=>{
 
 
 
-
 // ==========================
-// MOBILE REEL FOCUS EFFECT
+// MOBILE REEL FOCUS
 // ==========================
 
 
-if(window.innerWidth <= 900){
+if(window.innerWidth<=900){
 
 
 
-const mobileReels = document.querySelectorAll(".mobile-reel");
+const mobileReels=
+document.querySelectorAll(".mobile-reel");
 
 
 
-const mobileObserver = new IntersectionObserver((entries)=>{
+const mobileObserver=
+new IntersectionObserver((entries)=>{
 
 
 entries.forEach(entry=>{
@@ -517,23 +543,7 @@ if(entry.isIntersecting){
 entry.target.style.transform="scale(1.08)";
 
 
-entry.target.style.transition=".4s ease";
-
-
-
-const video = entry.target.querySelector("video");
-
-if(video){
-
-video.play();
-
 }
-
-
-
-}
-
-
 else{
 
 
@@ -637,13 +647,16 @@ turbos:[
 
 
 
-
 function openGallery(car){
 
 
-const popup=document.getElementById("popup");
 
-const container=document.getElementById("popup-images");
+const popup=
+document.getElementById("popup");
+
+
+const container=
+document.getElementById("popup-images");
 
 
 
@@ -674,7 +687,9 @@ popup.style.display="block";
 document.body.style.overflow="hidden";
 
 
+
 }
+
 
 
 
@@ -706,22 +721,16 @@ document.body.style.overflow="auto";
 // ==========================
 
 
-const sidebarToggle =
+const sidebarToggle=
 document.getElementById("sidebarToggle");
 
 
-const sidebar =
+const sidebar=
 document.querySelector(".sidebar");
 
 
-const content =
+const content=
 document.querySelector(".content");
-
-
-const overlay =
-document.getElementById("sidebarOverlay");
-
-
 
 
 
@@ -735,16 +744,6 @@ content.classList.toggle("open");
 
 
 
-if(overlay){
-
-
-overlay.classList.toggle("active");
-
-
-}
-
-
-
 });
 
 
@@ -753,10 +752,18 @@ overlay.classList.toggle("active");
 
 
 
-if(overlay){
+// ==========================
+// CLOSE SIDEBAR WHEN CLICK NAV MOBILE
+// ==========================
 
 
-overlay.addEventListener("click",()=>{
+document.querySelectorAll("nav a").forEach(link=>{
+
+
+link.addEventListener("click",()=>{
+
+
+if(window.innerWidth<=900){
 
 
 sidebar.classList.add("closed");
@@ -765,10 +772,12 @@ sidebar.classList.add("closed");
 content.classList.remove("open");
 
 
-overlay.classList.remove("active");
+}
+
 
 
 });
 
 
-}
+
+});
