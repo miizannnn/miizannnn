@@ -182,15 +182,37 @@ allVideos.forEach((video) => {
 });
 
 // ==========================
-// MOBILE REELS FOCUS & CENTER EXPAND
+// MOBILE REELS FOCUS & DEFAULT CENTER (REEL 3)
 // ==========================
 if (window.innerWidth <= 900) {
+  const mobileReelsContainer = document.querySelector(".mobile-reels");
   const mobileReels = document.querySelectorAll(".mobile-reel");
+
+  // Center Reel 3 on initial page load
+  const scrollToThirdReel = () => {
+    if (mobileReels[2] && mobileReelsContainer) {
+      const reelThree = mobileReels[2];
+      const scrollPosition = reelThree.offsetLeft - (mobileReelsContainer.clientWidth / 2) + (reelThree.clientWidth / 2);
+      mobileReelsContainer.scrollLeft = scrollPosition;
+    }
+  };
+
+  // Scroll to 3rd reel immediately on load
+  window.addEventListener("load", scrollToThirdReel);
+
+  // IntersectionObserver to handle center zoom & default scroll when user reaches section
+  let hasAutoScrolledToMiddle = false;
 
   const mobileObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
+
+        // When the user first scrolls down into the reels section, auto-snap to Reel 3
+        if (!hasAutoScrolledToMiddle) {
+          hasAutoScrolledToMiddle = true;
+          scrollToThirdReel();
+        }
       } else {
         entry.target.classList.remove("active");
         // Mute video if scrolled out of active focus
@@ -200,7 +222,7 @@ if (window.innerWidth <= 900) {
         if (soundBtn) soundBtn.classList.add("muted");
       }
     });
-  }, { threshold: 0.7 });
+  }, { threshold: 0.6 });
 
   mobileReels.forEach((reel) => {
     mobileObserver.observe(reel);
