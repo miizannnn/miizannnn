@@ -25,12 +25,15 @@ window.addEventListener("load", () => {
 
 
 
+
 // ==========================
 // ACTIVE NAVIGATION
 // ==========================
 
+
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("nav a");
+
 
 
 window.addEventListener("scroll",()=>{
@@ -72,7 +75,9 @@ window.addEventListener("scroll",()=>{
     });
 
 
+
 });
+
 
 
 
@@ -86,6 +91,7 @@ window.addEventListener("scroll",()=>{
 
 
 const items=document.querySelectorAll(".item");
+
 
 
 const observer=new IntersectionObserver((entries)=>{
@@ -110,6 +116,7 @@ entry.target.style.transform="translateY(0)";
 
 
 
+
 items.forEach(item=>{
 
 
@@ -124,6 +131,7 @@ observer.observe(item);
 
 
 });
+
 
 
 
@@ -150,6 +158,7 @@ hero.style.opacity="0";
 hero.style.transform="translateY(30px)";
 
 
+
 setTimeout(()=>{
 
 
@@ -163,6 +172,7 @@ hero.style.transform="translateY(0)";
 },300);
 
 
+
 }
 
 
@@ -174,105 +184,246 @@ hero.style.transform="translateY(0)";
 
 
 
+
+
 // ==========================
-// VIDEO SOUND SYSTEM
+// REELS CONTROL SYSTEM
 // ==========================
 
 
-const videos=document.querySelectorAll("video");
-
-const buttons=document.querySelectorAll(".sound-btn");
-
-
-
-function updateButton(button, muted){
-
-
-if(muted){
-
-button.classList.add("muted");
-
-}
-
-else{
-
-button.classList.remove("muted");
-
-}
-
-
-}
+const reelCards = document.querySelectorAll(
+    ".reel-card, .mobile-reel"
+);
 
 
 
-buttons.forEach(button=>{
+reelCards.forEach(card=>{
 
 
-const video=button.parentElement.querySelector("video");
+const video = card.querySelector("video");
 
 
-// start muted
+if(!video) return;
+
+
+
+
+
+// CREATE CONTROLS
+
+
+const controls=document.createElement("div");
+
+controls.className="reel-controls";
+
+
+
+const playBtn=document.createElement("button");
+
+playBtn.className="control-btn play-btn";
+
+playBtn.innerHTML="▶";
+
+
+
+const muteBtn=document.createElement("button");
+
+muteBtn.className="control-btn mute-control";
+
+muteBtn.innerHTML=`
+
+<svg class="sound-icon" viewBox="0 0 24 24">
+
+<path class="speaker"
+d="M11 5L6 9H2V15H6L11 19V5Z"/>
+
+<path class="wave"
+d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
+
+</svg>
+
+`;
+
+
+
+controls.appendChild(playBtn);
+
+controls.appendChild(muteBtn);
+
+
+
+card.appendChild(controls);
+
+
+
+
+
+
+
+// PROGRESS BAR
+
+
+const progressBar=document.createElement("div");
+
+progressBar.className="progress-bar";
+
+
+
+const progress=document.createElement("div");
+
+progress.className="progress";
+
+
+
+progressBar.appendChild(progress);
+
+
+card.appendChild(progressBar);
+
+
+
+
+
+
+
+
+// DEFAULT
+
 
 video.muted=true;
 
-updateButton(button,true);
 
 
 
-button.addEventListener("click",()=>{
 
 
-// mute all other videos
-
-videos.forEach(v=>{
+// PLAY / PAUSE
 
 
-if(v!==video){
-
-v.muted=true;
+playBtn.addEventListener("click",()=>{
 
 
-const otherButton=
-v.parentElement.querySelector(".sound-btn");
+if(video.paused){
 
 
-if(otherButton){
+video.play();
 
-updateButton(otherButton,true);
+playBtn.innerHTML="❚❚";
+
+
+
+}else{
+
+
+video.pause();
+
+playBtn.innerHTML="▶";
+
 
 }
 
-
-}
 
 
 });
 
 
 
-// toggle current
+
+
+
+
+
+// MUTE
+
+
+muteBtn.addEventListener("click",()=>{
 
 
 video.muted=!video.muted;
 
 
-updateButton(button,video.muted);
+
+if(video.muted){
+
+
+muteBtn.classList.add("muted");
+
+
+}else{
+
+
+muteBtn.classList.remove("muted");
+
+
+}
 
 
 
 });
 
 
+
+
+
+
+
+
+
+// PROGRESS UPDATE
+
+
+video.addEventListener("timeupdate",()=>{
+
+
+if(video.duration){
+
+
+let percent =
+(video.currentTime / video.duration) * 100;
+
+
+
+progress.style.width = percent + "%";
+
+
+}
+
+
+
 });
 
 
+
+
+
+
+
+
+// RESET
+
+
+video.addEventListener("ended",()=>{
+
+
+playBtn.innerHTML="▶";
+
+progress.style.width="0%";
+
+
+});
+
+
+
+});
 // ==========================
 // AUTO MUTE REELS WHEN OUT OF VIEW
 // ==========================
 
+
 const reelVideos = document.querySelectorAll(
     ".reel-card video, .mobile-reel video"
 );
+
 
 
 const reelObserver = new IntersectionObserver((entries)=>{
@@ -283,25 +434,27 @@ const reelObserver = new IntersectionObserver((entries)=>{
 
         const video = entry.target;
 
-        const button = video.parentElement.querySelector(".sound-btn");
+
+        const muteBtn = video.parentElement.querySelector(".mute-control");
 
 
         if(entry.isIntersecting){
 
-            // keep playing but muted
+
             video.play();
 
-        } 
-        else {
+
+        }
+
+        else{
 
 
-            // mute when leaving screen
             video.muted = true;
 
 
-            if(button){
+            if(muteBtn){
 
-                button.classList.add("muted");
+                muteBtn.classList.add("muted");
 
             }
 
@@ -309,7 +462,9 @@ const reelObserver = new IntersectionObserver((entries)=>{
         }
 
 
+
     });
+
 
 
 },{
@@ -320,11 +475,102 @@ const reelObserver = new IntersectionObserver((entries)=>{
 
 
 
+
 reelVideos.forEach(video=>{
+
 
     reelObserver.observe(video);
 
+
 });
+
+
+
+
+
+
+
+
+
+// ==========================
+// MOBILE REEL FOCUS EFFECT
+// ==========================
+
+
+if(window.innerWidth <= 900){
+
+
+
+const mobileReels = document.querySelectorAll(".mobile-reel");
+
+
+
+const mobileObserver = new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.transform="scale(1.08)";
+
+
+entry.target.style.transition=".4s ease";
+
+
+
+const video = entry.target.querySelector("video");
+
+if(video){
+
+video.play();
+
+}
+
+
+
+}
+
+
+else{
+
+
+entry.target.style.transform="scale(1)";
+
+
+}
+
+
+
+});
+
+
+},{
+
+threshold:.7
+
+});
+
+
+
+mobileReels.forEach(reel=>{
+
+
+mobileObserver.observe(reel);
+
+
+});
+
+
+
+}
+
+
+
+
+
 
 
 
@@ -390,6 +636,8 @@ turbos:[
 
 
 
+
+
 function openGallery(car){
 
 
@@ -398,7 +646,9 @@ const popup=document.getElementById("popup");
 const container=document.getElementById("popup-images");
 
 
+
 container.innerHTML="";
+
 
 
 galleries[car].forEach(image=>{
@@ -411,6 +661,7 @@ img.src=image;
 
 
 container.appendChild(img);
+
 
 
 });
@@ -443,40 +694,81 @@ document.body.style.overflow="auto";
 }
 
 
+
+
+
+
+
+
+
 // ==========================
 // SIDEBAR TOGGLE
 // ==========================
 
-const sidebarToggle = document.getElementById("sidebarToggle");
-const sidebar = document.querySelector(".sidebar");
-const content = document.querySelector(".content");
-const overlay = document.getElementById("sidebarOverlay");
+
+const sidebarToggle =
+document.getElementById("sidebarToggle");
+
+
+const sidebar =
+document.querySelector(".sidebar");
+
+
+const content =
+document.querySelector(".content");
+
+
+const overlay =
+document.getElementById("sidebarOverlay");
+
+
+
 
 
 sidebarToggle.addEventListener("click",()=>{
 
-  sidebar.classList.toggle("closed");
 
-  content.classList.toggle("open");
+sidebar.classList.toggle("closed");
 
-    if(overlay){
-        overlay.classList.toggle("active");
-    }
 
-});
+content.classList.toggle("open");
 
 
 
 if(overlay){
 
-    overlay.addEventListener("click",()=>{
 
-        sidebar.classList.add("closed");
+overlay.classList.toggle("active");
 
-        content.classList.remove("open");
 
-        overlay.classList.remove("active");
+}
 
-    });
+
+
+});
+
+
+
+
+
+
+
+if(overlay){
+
+
+overlay.addEventListener("click",()=>{
+
+
+sidebar.classList.add("closed");
+
+
+content.classList.remove("open");
+
+
+overlay.classList.remove("active");
+
+
+});
+
 
 }
