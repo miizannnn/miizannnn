@@ -22,8 +22,6 @@
     <nav>
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#videos">Videos</a>
-      <a href="#reels">Reels</a>
       <a href="#contact">Contact</a>
     </nav>
   </aside>
@@ -49,10 +47,8 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="portfolio-section">
-
-      <!-- 1. CAR PHOTO ALBUMS SECTION -->
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
       <div class="gallery">
         <div class="item" onclick="openGallery('laferrari')">
           <img src="images/cars/la-ferrari/cover.jpg" alt="La Ferrari Aperta">
@@ -99,48 +95,75 @@
           <div class="title">Porsche Turbo S</div>
         </div>
       </div>
-    </section>
 
-    <!-- 2. SEPARATE FEATURED VIDEO SECTION -->
-    <section id="videos" class="video-section">
-      <h2 class="section-title">FEATURED VIDEOS</h2>
-      <div class="gallery video-gallery">
-        <!-- Video 1 -->
-        <div class="item" onclick="openYtModal('F4HGo48FLj0')">
-          <img src="video/vid1/cl1.webp" alt="Miles Ahead">
-          <div class="title">Miles Ahead</div>
+      <!-- ==========================
+           VIDEO SECTION
+      ========================== -->
+      <div class="video-showcase-section">
+        <!-- Vertical Gradients for Seamless Fade -->
+        <div class="fade-gradient top-fade"></div>
+        <div class="fade-gradient bottom-fade"></div>
+
+        <!-- Looping Background Videos -->
+        <div class="video-bg-container">
+          <video class="video-bg active" data-vid="1" autoplay muted loop playsinline preload="metadata">
+            <source src="video/vid1/lbg1.mp4" type="video/mp4">
+          </video>
+          <video class="video-bg" data-vid="2" autoplay muted loop playsinline preload="metadata">
+            <source src="video/vid2/lbg2.mp4" type="video/mp4">
+          </video>
+          <video class="video-bg" data-vid="3" autoplay muted loop playsinline preload="metadata">
+            <source src="video/vid3/lbg3.mp4" type="video/mp4">
+          </video>
+          <video class="video-bg" data-vid="4" autoplay muted loop playsinline preload="metadata">
+            <source src="video/vid4/lbg4.mp4" type="video/mp4">
+          </video>
         </div>
 
-        <!-- Video 2 -->
-        <div class="item" onclick="openYtModal('WSLJbkGNPqg')">
-          <img src="video/vid2/cl2.webp" alt="PHM Underground Party">
-          <div class="title">PHM Underground Party</div>
-        </div>
+        <!-- Mouse Drag Slider Container -->
+        <div class="drag-slider-container" id="videoDragSlider">
+          <div class="drag-slider-track">
+            
+            <!-- Video Card 1 -->
+            <div class="video-card" data-vid="1" data-yt="F4HGo48FLj0">
+              <div class="card-overlay-title">Miles Ahead</div>
+              <img class="card-cover" src="video/vid1/cl1.webp" alt="Miles Ahead">
+              <div class="yt-embed-container"></div>
+            </div>
 
-        <!-- Video 3 -->
-        <div class="item" onclick="openYtModal('9LEamprLFLw')">
-          <img src="video/vid3/cl3.webp" alt="The Wabisabi 911">
-          <div class="title">The Wabisabi 911</div>
-        </div>
+            <!-- Video Card 2 -->
+            <div class="video-card" data-vid="2" data-yt="WSLJbkGNPqg">
+              <div class="card-overlay-title">PHM Underground Party</div>
+              <img class="card-cover" src="video/vid2/cl2.webp" alt="PHM Underground Party">
+              <div class="yt-embed-container"></div>
+            </div>
 
-        <!-- Video 4 -->
-        <div class="item" onclick="openYtModal('DYAyKI_jqwc')">
-          <img src="video/vid4/cl4.webp" alt="RC BigBike Rental">
-          <div class="title">RC BigBike Rental</div>
+            <!-- Video Card 3 -->
+            <div class="video-card" data-vid="3" data-yt="9LEamprLFLw">
+              <div class="card-overlay-title">The Wabisabi 911</div>
+              <img class="card-cover" src="video/vid3/cl3.webp" alt="The Wabisabi 911">
+              <div class="yt-embed-container"></div>
+            </div>
+
+            <!-- Video Card 4 -->
+            <div class="video-card" data-vid="4" data-yt="DYAyKI_jqwc">
+              <div class="card-overlay-title">RC BigBike Rental</div>
+              <img class="card-cover" src="video/vid4/cl4.webp" alt="RC BigBike Rental">
+              <div class="yt-embed-container"></div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- 3. SEPARATE REELS SECTION -->
-    <section id="reels" class="reels-section">
-      <h2 class="section-title">REELS & SHORTS</h2>
-
-      <!-- DESKTOP REELS -->
+      <!-- ==========================
+           DESKTOP REELS
+      ========================== -->
       <div class="desktop-reels">
         <!-- Reel 1 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid1/lbg1.mp4" type="video/mp4">
+            <source src="reels/reels1.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -159,7 +182,7 @@
         <!-- Reel 2 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid2/lbg2.mp4" type="video/mp4">
+            <source src="reels/reels2.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -178,7 +201,7 @@
         <!-- Reel 3 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid3/lbg3.mp4" type="video/mp4">
+            <source src="reels/reels3.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -197,7 +220,7 @@
         <!-- Reel 4 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid4/lbg4.mp4" type="video/mp4">
+            <source src="reels/reels4.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -233,12 +256,14 @@
         </div>
       </div>
 
-      <!-- MOBILE REELS -->
+      <!-- ==========================
+           MOBILE REELS (5 REELS)
+      ========================== -->
       <div class="mobile-reels">
         <!-- Mobile Reel 1 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid1/lbg1.mp4" type="video/mp4">
+            <source src="reels/reels1.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -257,7 +282,7 @@
         <!-- Mobile Reel 2 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid2/lbg2.mp4" type="video/mp4">
+            <source src="reels/reels2.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -276,7 +301,7 @@
         <!-- Mobile Reel 3 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid3/lbg3.mp4" type="video/mp4">
+            <source src="reels/reels3.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -295,7 +320,7 @@
         <!-- Mobile Reel 4 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="video/vid4/lbg4.mp4" type="video/mp4">
+            <source src="reels/reels4.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -368,18 +393,10 @@
       </div>
     </section>
 
-    <!-- IMAGE POPUP GALLERY -->
+    <!-- POPUP -->
     <div id="popup" class="popup">
       <button class="back-btn" onclick="closeGallery()">← Back</button>
       <div id="popup-images" class="popup-images"></div>
-    </div>
-
-    <!-- YOUTUBE VIDEO MODAL -->
-    <div id="yt-modal" class="yt-modal">
-      <button class="back-btn" onclick="closeYtModal()">← Back</button>
-      <div class="yt-wrapper">
-        <iframe id="yt-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
     </div>
   </main>
 
