@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
 });
 
 // ==========================
-// VIDEO SHOWCASE SLIDER & BACKGROUND SWITCHER
+// VIDEO SHOWCASE SLIDER & BUTTON NAVIGATION
 // ==========================
 const slider = document.getElementById('videoDragSlider');
 if (slider) {
@@ -144,6 +144,29 @@ if (slider) {
   };
 
   slider.addEventListener('scroll', updateBackgroundVideo);
+
+  // Arrow Button Navigation (Left / Right)
+  const prevBtn = document.querySelector('.slider-nav-btn.prev-btn');
+  const nextBtn = document.querySelector('.slider-nav-btn.next-btn');
+
+  const getScrollAmount = () => {
+    if (videoCards.length > 0) {
+      return videoCards[0].clientWidth + 25; // Card width + gap
+    }
+    return 400;
+  };
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+  }
 
   // Play YouTube Video inside Card on Click
   videoCards.forEach((card) => {
