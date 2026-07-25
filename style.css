@@ -208,8 +208,8 @@ nav a:hover {
 .video-showcase-section {
   position: relative;
   width: 100%;
-  height: 75vh;
-  min-height: 500px;
+  height: 85vh; /* Increased height to accommodate the larger card */
+  min-height: 600px;
   overflow: hidden;
   background: #000;
   display: flex;
@@ -279,8 +279,8 @@ nav a:hover {
 
 .drag-slider-track {
   display: flex;
-  gap: 30px;
-  padding: 0 10vw;
+  gap: 25px;
+  padding: 0 10vw; /* Padding ensures centered cards reveal peek edges of next/prev */
   width: max-content;
   align-items: center;
 }
@@ -288,21 +288,22 @@ nav a:hover {
 /* Video Selector Card (16:9) */
 .video-card {
   position: relative;
-  width: 480px;
+  width: 75vw; /* Sets width so main video dominates while peeking adjacent cards */
+  max-width: 1100px; /* Upper limit for ultra-wide desktop monitors */
   aspect-ratio: 16/9;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   background: #111;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
   flex-shrink: 0;
   transition: transform 0.4s ease, border-color 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
 
 .video-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .card-cover {
@@ -315,16 +316,16 @@ nav a:hover {
 /* Card Title */
 .card-overlay-title {
   position: absolute;
-  top: 15px;
+  top: 20px;
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 13px;
-  letter-spacing: 2px;
+  font-size: 15px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #fff;
   z-index: 4;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
   pointer-events: none;
 }
 
@@ -599,7 +600,7 @@ nav a:hover {
   }
 
   .video-card {
-    width: 78vw;
+    width: 82vw;
   }
 
   .desktop-reels {
