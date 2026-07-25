@@ -49,6 +49,7 @@
 
     <!-- PORTFOLIO -->
     <section id="portfolio">
+      <!-- 1. CAR PHOTO ALBUMS SECTION -->
       <div class="gallery">
         <div class="item" onclick="openGallery('laferrari')">
           <img src="images/cars/la-ferrari/cover.jpg" alt="La Ferrari Aperta">
@@ -96,14 +97,41 @@
         </div>
       </div>
 
+      <!-- 2. VIDEO THUMBNAILS SECTION (AFTER ALBUM SECTION) -->
+      <div class="gallery video-gallery">
+        <!-- Video 1 -->
+        <div class="item" onclick="openYtModal('F4HGo48FLj0')">
+          <img src="video/vid1/cl1.webp" alt="Miles Ahead">
+          <div class="title">Miles Ahead</div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="item" onclick="openYtModal('WSLJbkGNPqg')">
+          <img src="video/vid2/cl2.webp" alt="PHM Underground Party">
+          <div class="title">PHM Underground Party</div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="item" onclick="openYtModal('9LEamprLFLw')">
+          <img src="video/vid3/cl3.webp" alt="The Wabisabi 911">
+          <div class="title">The Wabisabi 911</div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="item" onclick="openYtModal('DYAyKI_jqwc')">
+          <img src="video/vid4/cl4.webp" alt="RC BigBike Rental">
+          <div class="title">RC BigBike Rental</div>
+        </div>
+      </div>
+
       <!-- ==========================
            DESKTOP REELS
       ========================== -->
       <div class="desktop-reels">
-        <!-- Reel 1 -->
+        <!-- Reel 1: Miles Ahead (video/vid1/lbg1.mp4) -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels1.mp4" type="video/mp4">
+            <source src="video/vid1/lbg1.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -119,10 +147,10 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Reel 2 -->
+        <!-- Reel 2: PHM Underground Party (video/vid2/lbg2.mp4) -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels2.mp4" type="video/mp4">
+            <source src="video/vid2/lbg2.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -138,10 +166,10 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Reel 3 -->
+        <!-- Reel 3: The Wabisabi 911 (video/vid3/lbg3.mp4) -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels3.mp4" type="video/mp4">
+            <source src="video/vid3/lbg3.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -157,10 +185,10 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Reel 4 -->
+        <!-- Reel 4: RC BigBike Rental (video/vid4/lbg4.mp4) -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels4.mp4" type="video/mp4">
+            <source src="video/vid4/lbg4.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -197,13 +225,13 @@
       </div>
 
       <!-- ==========================
-           MOBILE REELS (5 REELS)
+           MOBILE REELS
       ========================== -->
       <div class="mobile-reels">
-        <!-- Mobile Reel 1 -->
+        <!-- Mobile Reel 1: Miles Ahead (video/vid1/lbg1.mp4) -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels1.mp4" type="video/mp4">
+            <source src="video/vid1/lbg1.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -219,10 +247,10 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Mobile Reel 2 -->
+        <!-- Mobile Reel 2: PHM Underground Party (video/vid2/lbg2.mp4) -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels2.mp4" type="video/mp4">
+            <source src="video/vid2/lbg2.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -238,10 +266,10 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Mobile Reel 3 -->
+        <!-- Mobile Reel 3: The Wabisabi 911 (video/vid3/lbg3.mp4) -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels3.mp4" type="video/mp4">
+            <source src="video/vid3/lbg3.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -257,10 +285,10 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Mobile Reel 4 -->
+        <!-- Mobile Reel 4: RC BigBike Rental (video/vid4/lbg4.mp4) -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="reels/reels4.mp4" type="video/mp4">
+            <source src="video/vid4/lbg4.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
             <button class="play-btn">
@@ -333,10 +361,18 @@
       </div>
     </section>
 
-    <!-- POPUP -->
+    <!-- IMAGE POPUP GALLERY -->
     <div id="popup" class="popup">
       <button class="back-btn" onclick="closeGallery()">← Back</button>
       <div id="popup-images" class="popup-images"></div>
+    </div>
+
+    <!-- YOUTUBE VIDEO MODAL -->
+    <div id="yt-modal" class="yt-modal">
+      <button class="back-btn" onclick="closeYtModal()">← Back</button>
+      <div class="yt-wrapper">
+        <iframe id="yt-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
     </div>
   </main>
 
