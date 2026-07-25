@@ -145,9 +145,9 @@ if (slider) {
 
   slider.addEventListener('scroll', updateBackgroundVideo);
 
-  // Arrow Button Navigation (Left / Right)
-  const prevBtn = document.querySelector('.slider-nav-btn.prev-btn');
-  const nextBtn = document.querySelector('.slider-nav-btn.next-btn');
+  // Arrow Button Navigation (Supports both class and ID naming)
+  const prevBtn = document.querySelector('.slider-nav-btn.prev-btn') || document.getElementById('prevBtn');
+  const nextBtn = document.querySelector('.slider-nav-btn.next-btn') || document.getElementById('nextBtn');
 
   const getScrollAmount = () => {
     if (videoCards.length > 0) {
