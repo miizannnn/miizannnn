@@ -268,6 +268,27 @@ function closeGallery() {
 }
 
 // ==========================
+// YOUTUBE MODAL PLAYER
+// ==========================
+function openYtModal(videoId) {
+  const modal = document.getElementById("yt-modal");
+  const iframe = document.getElementById("yt-iframe");
+
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeYtModal() {
+  const modal = document.getElementById("yt-modal");
+  const iframe = document.getElementById("yt-iframe");
+
+  iframe.src = "";
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+// ==========================
 // SIDEBAR TOGGLE
 // ==========================
 const sidebarToggle = document.getElementById("sidebarToggle");
