@@ -106,7 +106,7 @@ if (slider) {
   slider.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.8;
+    const walk = (x - startX) * 1.5;
     if (Math.abs(walk) > 5) {
       isDragging = true;
     }
@@ -145,33 +145,33 @@ if (slider) {
 
   slider.addEventListener('scroll', updateBackgroundVideo);
 
-  // Arrow Button Navigation (Supports both class and ID naming)
+  // Arrow Button Navigation (Accurate card-by-card centering)
   const prevBtn = document.querySelector('.slider-nav-btn.prev-btn') || document.getElementById('prevBtn');
   const nextBtn = document.querySelector('.slider-nav-btn.next-btn') || document.getElementById('nextBtn');
 
-  const getScrollAmount = () => {
+  const getScrollStep = () => {
     if (videoCards.length > 0) {
-      return videoCards[0].clientWidth + 25; // Card width + gap
+      return videoCards[0].clientWidth + 20; // Card width + gap
     }
-    return 400;
+    return 350;
   };
 
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
     });
   }
 
   // Play YouTube Video inside Card on Click
   videoCards.forEach((card) => {
     card.addEventListener('click', (e) => {
-      if (isDragging) return; // Prevent triggering video play on click-drag
+      if (isDragging) return;
 
       // Reset and stop any active iframe on other cards
       videoCards.forEach((otherCard) => {
