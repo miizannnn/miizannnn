@@ -167,6 +167,10 @@ nav a:hover {
   gap: 20px;
 }
 
+.video-gallery {
+  padding-top: 0px;
+}
+
 .item {
   position: relative;
   overflow: hidden;
@@ -408,6 +412,7 @@ nav a:hover {
   color: white;
   font-size: 16px;
   cursor: pointer;
+  z-index: 100000;
 }
 
 .popup-images {
@@ -420,6 +425,30 @@ nav a:hover {
 .popup-images img {
   width: 90%;
   max-width: 1600px;
+}
+
+/* ==========================
+   YOUTUBE MODAL
+========================== */
+.yt-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.yt-wrapper {
+  width: 85%;
+  max-width: 1200px;
+  aspect-ratio: 16/9;
+}
+
+.yt-wrapper iframe {
+  width: 100%;
+  height: 100%;
 }
 
 /* ==========================
@@ -457,14 +486,13 @@ nav a:hover {
   .mobile-reels {
     display: flex;
     gap: 12px;
-    padding: 60px 11vw; /* Leaves space to reveal previous/next reels on sides */
+    padding: 60px 11vw;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: 11vw; /* CRITICAL: Allows Reels 1 & 5 to snap dead center */
+    scroll-padding-inline: 11vw;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Hide scrollbar for seamless app look */
   .mobile-reels::-webkit-scrollbar {
     display: none;
   }
@@ -488,9 +516,8 @@ nav a:hover {
     object-fit: cover;
   }
 
-  /* Active Center Reel Effect */
   .mobile-reel.active {
-    transform: scale(1.05); /* Expands top & bottom slightly */
+    transform: scale(1.05);
     opacity: 1;
   }
 }
