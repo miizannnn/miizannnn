@@ -158,33 +158,13 @@ nav a:hover {
 }
 
 /* ==========================
-   SECTION HEADINGS
-========================== */
-.section-title {
-  font-size: 14px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  opacity: .5;
-  padding: 40px 25px 15px 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.video-section, .reels-section {
-  margin-top: 30px;
-}
-
-/* ==========================
-   GALLERIES
+   GALLERY
 ========================== */
 .gallery {
   padding: 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-}
-
-.video-gallery {
-  padding-top: 15px;
 }
 
 .item {
@@ -223,10 +203,157 @@ nav a:hover {
 }
 
 /* ==========================
+   VIDEO SHOWCASE SECTION
+========================== */
+.video-showcase-section {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+}
+
+/* Vertical Gradient Fades */
+.fade-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.top-fade {
+  top: 0;
+  background: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+
+.bottom-fade {
+  bottom: 0;
+  background: linear-gradient(to top, #000 0%, transparent 100%);
+}
+
+/* Looping Background Videos */
+.video-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.video-bg.active {
+  opacity: 0.45;
+}
+
+/* Drag Slider Setup */
+.drag-slider-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  overflow-x: auto;
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.drag-slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.drag-slider-container.active {
+  cursor: grabbing;
+}
+
+.drag-slider-track {
+  display: flex;
+  gap: 30px;
+  padding: 0 10vw;
+  width: max-content;
+  align-items: center;
+}
+
+/* 16:9 Video Cards */
+.video-card {
+  position: relative;
+  width: 480px;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Small Title Overlay */
+.card-overlay-title {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 4;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+/* Inline YouTube Container */
+.yt-embed-container {
+  position: absolute;
+  inset: 0;
+  display: none;
+  z-index: 6;
+  background: #000;
+}
+
+.yt-embed-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-card.playing .yt-embed-container {
+  display: block;
+}
+
+.video-card.playing .card-cover,
+.video-card.playing .card-overlay-title {
+  display: none;
+}
+
+/* ==========================
    REELS DESKTOP
 ========================== */
 .desktop-reels {
-  padding: 30px 25px 70px 25px;
+  padding: 70px 25px;
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -428,7 +555,6 @@ nav a:hover {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  z-index: 100000;
 }
 
 .popup-images {
@@ -441,30 +567,6 @@ nav a:hover {
 .popup-images img {
   width: 90%;
   max-width: 1600px;
-}
-
-/* ==========================
-   YOUTUBE MODAL
-========================== */
-.yt-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-}
-
-.yt-wrapper {
-  width: 85%;
-  max-width: 1200px;
-  aspect-ratio: 16/9;
-}
-
-.yt-wrapper iframe {
-  width: 100%;
-  height: 100%;
 }
 
 /* ==========================
@@ -494,6 +596,10 @@ nav a:hover {
     letter-spacing: 5px;
   }
 
+  .video-card {
+    width: 78vw;
+  }
+
   .desktop-reels {
     display: none;
   }
@@ -502,13 +608,14 @@ nav a:hover {
   .mobile-reels {
     display: flex;
     gap: 12px;
-    padding: 30px 11vw 60px 11vw;
+    padding: 60px 11vw; /* Leaves space to reveal previous/next reels on sides */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: 11vw;
+    scroll-padding-inline: 11vw; /* CRITICAL: Allows Reels 1 & 5 to snap dead center */
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Hide scrollbar for seamless app look */
   .mobile-reels::-webkit-scrollbar {
     display: none;
   }
@@ -532,8 +639,9 @@ nav a:hover {
     object-fit: cover;
   }
 
+  /* Active Center Reel Effect */
   .mobile-reel.active {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Expands top & bottom slightly */
     opacity: 1;
   }
 }
