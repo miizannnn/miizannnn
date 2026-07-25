@@ -75,6 +75,101 @@ window.addEventListener("load", () => {
 });
 
 // ==========================
+// VIDEO SHOWCASE SLIDER LOGIC
+// ==========================
+const slider = document.getElementById('videoDragSlider');
+if (slider) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let isDragging = false;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    isDragging = false;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.8;
+    if (Math.abs(walk) > 5) {
+      isDragging = true;
+    }
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Background Video Switcher on Scroll Focus
+  const videoCards = slider.querySelectorAll('.video-card');
+  const bgVideos = document.querySelectorAll('.video-bg');
+
+  slider.addEventListener('scroll', () => {
+    const sliderCenter = slider.scrollLeft + (slider.clientWidth / 2);
+    let closestCard = null;
+    let minDistance = Infinity;
+
+    videoCards.forEach((card) => {
+      const cardCenter = card.offsetLeft + (card.clientWidth / 2);
+      const distance = Math.abs(sliderCenter - cardCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestCard = card;
+      }
+    });
+
+    if (closestCard) {
+      const vidId = closestCard.getAttribute('data-vid');
+      bgVideos.forEach((bg) => {
+        if (bg.getAttribute('data-vid') === vidId) {
+          bg.classList.add('active');
+        } else {
+          bg.classList.remove('active');
+        }
+      });
+    }
+  });
+
+  // Inline YouTube Video Embed Handler
+  videoCards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (isDragging) return; // Ignore drag clicks
+
+      // Stop any other active iframe
+      videoCards.forEach((otherCard) => {
+        if (otherCard !== card && otherCard.classList.contains('playing')) {
+          otherCard.classList.remove('playing');
+          const embed = otherCard.querySelector('.yt-embed-container');
+          if (embed) embed.innerHTML = '';
+        }
+      });
+
+      // Play YouTube Video inline
+      if (!card.classList.contains('playing')) {
+        const ytId = card.getAttribute('data-yt');
+        const embedContainer = card.querySelector('.yt-embed-container');
+        if (ytId && embedContainer) {
+          embedContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+          card.classList.add('playing');
+        }
+      }
+    });
+  });
+}
+
+// ==========================
 // REELS CONTROL SYSTEM
 // ==========================
 const reelCards = document.querySelectorAll(".reel-card, .mobile-reel");
@@ -264,27 +359,6 @@ function openGallery(car) {
 
 function closeGallery() {
   document.getElementById("popup").style.display = "none";
-  document.body.style.overflow = "auto";
-}
-
-// ==========================
-// YOUTUBE MODAL PLAYER
-// ==========================
-function openYtModal(videoId) {
-  const modal = document.getElementById("yt-modal");
-  const iframe = document.getElementById("yt-iframe");
-
-  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  modal.style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
-function closeYtModal() {
-  const modal = document.getElementById("yt-modal");
-  const iframe = document.getElementById("yt-iframe");
-
-  iframe.src = "";
-  modal.style.display = "none";
   document.body.style.overflow = "auto";
 }
 
