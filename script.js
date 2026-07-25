@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
 });
 
 // ==========================
-// VIDEO SHOWCASE SLIDER LOGIC
+// VIDEO SHOWCASE SLIDER & BACKGROUND SWITCHER
 // ==========================
 const slider = document.getElementById('videoDragSlider');
 if (slider) {
@@ -84,6 +84,7 @@ if (slider) {
   let scrollLeft;
   let isDragging = false;
 
+  // Dragging Functionality
   slider.addEventListener('mousedown', (e) => {
     isDown = true;
     isDragging = false;
@@ -112,11 +113,11 @@ if (slider) {
     slider.scrollLeft = scrollLeft - walk;
   });
 
-  // Background Video Switcher on Scroll Focus
+  // Dynamic Background Switcher Based on Centered Card
   const videoCards = slider.querySelectorAll('.video-card');
   const bgVideos = document.querySelectorAll('.video-bg');
 
-  slider.addEventListener('scroll', () => {
+  const updateBackgroundVideo = () => {
     const sliderCenter = slider.scrollLeft + (slider.clientWidth / 2);
     let closestCard = null;
     let minDistance = Infinity;
@@ -140,14 +141,16 @@ if (slider) {
         }
       });
     }
-  });
+  };
 
-  // Inline YouTube Video Embed Handler
+  slider.addEventListener('scroll', updateBackgroundVideo);
+
+  // Play YouTube Video inside Card on Click
   videoCards.forEach((card) => {
     card.addEventListener('click', (e) => {
-      if (isDragging) return; // Ignore drag clicks
+      if (isDragging) return; // Prevent triggering video play on click-drag
 
-      // Stop any other active iframe
+      // Reset and stop any active iframe on other cards
       videoCards.forEach((otherCard) => {
         if (otherCard !== card && otherCard.classList.contains('playing')) {
           otherCard.classList.remove('playing');
@@ -156,7 +159,7 @@ if (slider) {
         }
       });
 
-      // Play YouTube Video inline
+      // Embed YouTube Player
       if (!card.classList.contains('playing')) {
         const ytId = card.getAttribute('data-yt');
         const embedContainer = card.querySelector('.yt-embed-container');
@@ -188,11 +191,9 @@ reelCards.forEach((card) => {
   const soundBtn = card.querySelector(".sound-btn");
   const progress = card.querySelector(".progress");
 
-  // Default muted
   video.muted = true;
   if (soundBtn) soundBtn.classList.add("muted");
 
-  // PLAY / PAUSE BUTTON
   if (playBtn) {
     playBtn.addEventListener("click", () => {
       if (video.paused) {
@@ -203,7 +204,6 @@ reelCards.forEach((card) => {
     });
   }
 
-  // Update play/pause icon state
   video.addEventListener("play", () => {
     if (playBtn) playBtn.innerHTML = pauseIconSvg;
   });
@@ -212,13 +212,11 @@ reelCards.forEach((card) => {
     if (playBtn) playBtn.innerHTML = playIconSvg;
   });
 
-  // MUTE / UNMUTE BUTTON (ALLOWS ONLY ONE ACTIVE AUDIO AT A TIME)
   if (soundBtn) {
     soundBtn.addEventListener("click", () => {
       const isCurrentlyMuted = video.muted;
 
       if (isCurrentlyMuted) {
-        // Mute ALL other videos across both desktop & mobile
         allVideos.forEach((other) => {
           other.muted = true;
           const otherCard = other.closest(".reel-card, .mobile-reel");
@@ -228,18 +226,15 @@ reelCards.forEach((card) => {
           }
         });
 
-        // Unmute clicked reel
         video.muted = false;
         soundBtn.classList.remove("muted");
       } else {
-        // Mute clicked reel
         video.muted = true;
         soundBtn.classList.add("muted");
       }
     });
   }
 
-  // Progress Bar update
   video.addEventListener("timeupdate", () => {
     if (video.duration && progress) {
       let percent = (video.currentTime / video.duration) * 100;
@@ -283,7 +278,6 @@ if (window.innerWidth <= 900) {
   const mobileReelsContainer = document.querySelector(".mobile-reels");
   const mobileReels = document.querySelectorAll(".mobile-reel");
 
-  // Center Reel 3 on initial page load
   const scrollToThirdReel = () => {
     if (mobileReels[2] && mobileReelsContainer) {
       const reelThree = mobileReels[2];
@@ -292,10 +286,8 @@ if (window.innerWidth <= 900) {
     }
   };
 
-  // Scroll to 3rd reel immediately on load
   window.addEventListener("load", scrollToThirdReel);
 
-  // IntersectionObserver to handle center zoom & default scroll when user reaches section
   let hasAutoScrolledToMiddle = false;
 
   const mobileObserver = new IntersectionObserver((entries) => {
@@ -303,14 +295,12 @@ if (window.innerWidth <= 900) {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
 
-        // When the user first scrolls down into the reels section, auto-snap to Reel 3
         if (!hasAutoScrolledToMiddle) {
           hasAutoScrolledToMiddle = true;
           scrollToThirdReel();
         }
       } else {
         entry.target.classList.remove("active");
-        // Mute video if scrolled out of active focus
         const video = entry.target.querySelector("video");
         if (video) video.muted = true;
         const soundBtn = entry.target.querySelector(".sound-btn");
