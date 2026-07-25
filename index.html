@@ -26,7 +26,7 @@
     </nav>
   </aside>
 
-  <button class="sidebar-toggle" id="sidebarToggle">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Navigation">
     <span></span>
     <span></span>
     <span></span>
@@ -104,7 +104,7 @@
         <div class="fade-gradient top-fade"></div>
         <div class="fade-gradient bottom-fade"></div>
 
-        <!-- Ambient Background Videos (lbg1 - lbg4) -->
+        <!-- Ambient Background Videos -->
         <div class="video-bg-container">
           <video class="video-bg active" data-vid="1" autoplay muted loop playsinline preload="metadata">
             <source src="video/vid1/lbg1.mp4" type="video/mp4">
@@ -121,7 +121,7 @@
         </div>
 
         <!-- Left Nav Arrow Button -->
-        <button class="nav-btn nav-btn-left" id="prevBtn" aria-label="Previous Video">&#10094;</button>
+        <button class="slider-nav-btn prev-btn" id="prevBtn" aria-label="Previous Video">&#10094;</button>
 
         <!-- Overlay Selection Slider -->
         <div class="drag-slider-container" id="videoDragSlider">
@@ -129,28 +129,28 @@
             
             <!-- Video Selector Card 1 -->
             <div class="video-card" data-vid="1" data-yt="F4HGo48FLj0">
-              <div class="card-overlay-title">Miles Ahead</div>
+              <span class="card-overlay-title">Miles Ahead</span>
               <img class="card-cover" src="video/vid1/cl1.webp" alt="Miles Ahead">
               <div class="yt-embed-container"></div>
             </div>
 
             <!-- Video Selector Card 2 -->
             <div class="video-card" data-vid="2" data-yt="WSLJbkGNPqg">
-              <div class="card-overlay-title">PHM Underground Party</div>
+              <span class="card-overlay-title">PHM Underground Party</span>
               <img class="card-cover" src="video/vid2/cl2.webp" alt="PHM Underground Party">
               <div class="yt-embed-container"></div>
             </div>
 
             <!-- Video Selector Card 3 -->
             <div class="video-card" data-vid="3" data-yt="9LEamprLFLw">
-              <div class="card-overlay-title">The Wabisabi 911</div>
+              <span class="card-overlay-title">The Wabisabi 911</span>
               <img class="card-cover" src="video/vid3/cl3.webp" alt="The Wabisabi 911">
               <div class="yt-embed-container"></div>
             </div>
 
             <!-- Video Selector Card 4 -->
             <div class="video-card" data-vid="4" data-yt="DYAyKI_jqwc">
-              <div class="card-overlay-title">RC BigBike Rental</div>
+              <span class="card-overlay-title">RC BigBike Rental</span>
               <img class="card-cover" src="video/vid4/cl4.webp" alt="RC BigBike Rental">
               <div class="yt-embed-container"></div>
             </div>
@@ -159,7 +159,7 @@
         </div>
 
         <!-- Right Nav Arrow Button -->
-        <button class="nav-btn nav-btn-right" id="nextBtn" aria-label="Next Video">&#10095;</button>
+        <button class="slider-nav-btn next-btn" id="nextBtn" aria-label="Next Video">&#10095;</button>
       </div>
 
       <!-- ==========================
@@ -172,10 +172,10 @@
             <source src="reels/reels1.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -191,10 +191,10 @@
             <source src="reels/reels2.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -210,10 +210,10 @@
             <source src="reels/reels3.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -229,10 +229,10 @@
             <source src="reels/reels4.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -248,10 +248,10 @@
             <source src="reels/reels5.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -272,10 +272,10 @@
             <source src="reels/reels1.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -291,10 +291,10 @@
             <source src="reels/reels2.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -310,10 +310,10 @@
             <source src="reels/reels3.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -329,10 +329,10 @@
             <source src="reels/reels4.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -348,10 +348,10 @@
             <source src="reels/reels5.mp4" type="video/mp4">
           </video>
           <div class="reel-controls">
-            <button class="play-btn">
+            <button class="play-btn" aria-label="Play/Pause">
               <svg viewBox="0 0 24 24"><path d="M6 5H10V19H6V5ZM14 5H18V19H14V5Z"/></svg>
             </button>
-            <button class="sound-btn muted">
+            <button class="sound-btn muted" aria-label="Mute/Unmute">
               <svg class="sound-icon" viewBox="0 0 24 24">
                 <path class="speaker" d="M11 5L6 9H2V15H6L11 19V5Z"/>
                 <path class="wave" d="M15 9C16.5 10.5 16.5 13.5 15 15"/>
@@ -384,12 +384,12 @@
         <div class="contact-block">
           <h3>FOLLOW</h3>
           <div class="social-links">
-            <a href="https://www.instagram.com/miizannnn/" target="_blank">
+            <a href="https://www.instagram.com/miizannnn/" target="_blank" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 2C4.2 2 2 4.2 2 7V17C2 19.8 4.2 22 7 22H17C19.8 22 22 19.8 22 17V7C22 4.2 19.8 2 17 2H7Z"/>
               </svg>
             </a>
-            <a href="https://www.cosmos.so/wickedd/collections" target="_blank">
+            <a href="https://www.cosmos.so/wickedd/collections" target="_blank" aria-label="Cosmos Collections">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L21 7V17L12 22L3 17V7L12 2Z"/>
               </svg>
