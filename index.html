@@ -22,6 +22,8 @@
     <nav>
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#videos">Videos</a>
+      <a href="#reels">Reels</a>
       <a href="#contact">Contact</a>
     </nav>
   </aside>
@@ -47,8 +49,9 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio">
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="portfolio-section">
+
       <!-- 1. CAR PHOTO ALBUMS SECTION -->
       <div class="gallery">
         <div class="item" onclick="openGallery('laferrari')">
@@ -96,8 +99,11 @@
           <div class="title">Porsche Turbo S</div>
         </div>
       </div>
+    </section>
 
-      <!-- 2. VIDEO THUMBNAILS SECTION (AFTER ALBUM SECTION) -->
+    <!-- 2. SEPARATE FEATURED VIDEO SECTION -->
+    <section id="videos" class="video-section">
+      <h2 class="section-title">FEATURED VIDEOS</h2>
       <div class="gallery video-gallery">
         <!-- Video 1 -->
         <div class="item" onclick="openYtModal('F4HGo48FLj0')">
@@ -123,12 +129,15 @@
           <div class="title">RC BigBike Rental</div>
         </div>
       </div>
+    </section>
 
-      <!-- ==========================
-           DESKTOP REELS
-      ========================== -->
+    <!-- 3. SEPARATE REELS SECTION -->
+    <section id="reels" class="reels-section">
+      <h2 class="section-title">REELS & SHORTS</h2>
+
+      <!-- DESKTOP REELS -->
       <div class="desktop-reels">
-        <!-- Reel 1: Miles Ahead (video/vid1/lbg1.mp4) -->
+        <!-- Reel 1 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid1/lbg1.mp4" type="video/mp4">
@@ -147,7 +156,7 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Reel 2: PHM Underground Party (video/vid2/lbg2.mp4) -->
+        <!-- Reel 2 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid2/lbg2.mp4" type="video/mp4">
@@ -166,7 +175,7 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Reel 3: The Wabisabi 911 (video/vid3/lbg3.mp4) -->
+        <!-- Reel 3 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid3/lbg3.mp4" type="video/mp4">
@@ -185,7 +194,7 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Reel 4: RC BigBike Rental (video/vid4/lbg4.mp4) -->
+        <!-- Reel 4 -->
         <div class="reel-card">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid4/lbg4.mp4" type="video/mp4">
@@ -224,11 +233,9 @@
         </div>
       </div>
 
-      <!-- ==========================
-           MOBILE REELS
-      ========================== -->
+      <!-- MOBILE REELS -->
       <div class="mobile-reels">
-        <!-- Mobile Reel 1: Miles Ahead (video/vid1/lbg1.mp4) -->
+        <!-- Mobile Reel 1 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid1/lbg1.mp4" type="video/mp4">
@@ -247,7 +254,7 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Mobile Reel 2: PHM Underground Party (video/vid2/lbg2.mp4) -->
+        <!-- Mobile Reel 2 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid2/lbg2.mp4" type="video/mp4">
@@ -266,7 +273,7 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Mobile Reel 3: The Wabisabi 911 (video/vid3/lbg3.mp4) -->
+        <!-- Mobile Reel 3 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid3/lbg3.mp4" type="video/mp4">
@@ -285,7 +292,7 @@
           <div class="progress-bar"><div class="progress"></div></div>
         </div>
 
-        <!-- Mobile Reel 4: RC BigBike Rental (video/vid4/lbg4.mp4) -->
+        <!-- Mobile Reel 4 -->
         <div class="mobile-reel">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="video/vid4/lbg4.mp4" type="video/mp4">
