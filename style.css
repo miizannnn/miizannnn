@@ -208,8 +208,8 @@ nav a:hover {
 .video-showcase-section {
   position: relative;
   width: 100%;
-  height: 75vh;
-  min-height: 520px;
+  height: 65vh;
+  min-height: 440px;
   overflow: hidden;
   background: #000;
   display: flex;
@@ -221,7 +221,7 @@ nav a:hover {
   position: absolute;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 100px;
   z-index: 10;
   pointer-events: none;
 }
@@ -254,17 +254,17 @@ nav a:hover {
 }
 
 .video-bg.active {
-  opacity: 0.5; /* Darkened ambient background */
+  opacity: 0.5;
 }
 
-/* Navigation Arrow Buttons (Supports both .slider-nav-btn and .nav-btn) */
+/* Navigation Arrow Buttons */
 .slider-nav-btn,
 .nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -303,7 +303,7 @@ nav a:hover {
   right: 25px;
 }
 
-/* Drag Slider Container */
+/* Drag Slider Container with Center Snapping */
 .drag-slider-container {
   position: relative;
   z-index: 5;
@@ -312,6 +312,7 @@ nav a:hover {
   cursor: grab;
   user-select: none;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
 
@@ -321,34 +322,38 @@ nav a:hover {
 
 .drag-slider-container.active {
   cursor: grabbing;
+  scroll-snap-type: none; /* Smooth drag response during manual drag */
 }
 
+/* Dynamic Padding ensures First and Last cards center perfectly */
 .drag-slider-track {
   display: flex;
-  gap: 25px;
-  padding: 0 10vw;
+  gap: 20px;
+  padding: 0 calc(50vw - min(24vw, 350px));
   width: max-content;
   align-items: center;
 }
 
-/* Video Selector Card (16:9) */
+/* Reduced Video Card (20% Smaller) */
 .video-card {
   position: relative;
-  width: 60vw;
-  max-width: 880px;
+  width: 48vw;
+  max-width: 700px;
   aspect-ratio: 16/9;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   background: #111;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
   flex-shrink: 0;
+  scroll-snap-align: center; /* Enforces exact middle position when scrolling */
+  scroll-snap-stop: always;
   transition: transform 0.4s ease, border-color 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
 
 .video-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -362,11 +367,11 @@ nav a:hover {
 /* Card Title */
 .card-overlay-title {
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #fff;
@@ -403,15 +408,15 @@ nav a:hover {
    REELS DESKTOP
 ========================== */
 .desktop-reels {
-  padding: 70px 25px;
+  padding: 60px 25px;
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .reel-card {
   position: relative;
-  width: 300px;
+  width: 240px; /* Reduced ~20% */
   aspect-ratio: 9/16;
   overflow: hidden;
   background: #111;
@@ -446,8 +451,8 @@ nav a:hover {
 .control-btn,
 .play-btn,
 .sound-btn {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, .25);
   background: rgba(0, 0, 0, .45);
@@ -461,14 +466,14 @@ nav a:hover {
 }
 
 .play-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   fill: white;
 }
 
 .sound-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   fill: white;
 }
 
@@ -491,7 +496,7 @@ nav a:hover {
 .sound-btn.muted::after {
   content: "";
   position: absolute;
-  width: 18px;
+  width: 16px;
   height: 2px;
   background: white;
   transform: rotate(-45deg);
@@ -645,15 +650,19 @@ nav a:hover {
     letter-spacing: 5px;
   }
 
+  .drag-slider-track {
+    padding: 0 calc(50vw - 31vw); /* Centers 62vw card on mobile */
+  }
+
   .video-card {
-    width: 78vw;
+    width: 62vw; /* Reduced ~20% */
   }
 
   .slider-nav-btn,
   .nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
   }
 
   .slider-nav-btn.prev-btn,
@@ -673,10 +682,9 @@ nav a:hover {
   .mobile-reels {
     display: flex;
     gap: 12px;
-    padding: 60px 11vw;
+    padding: 50px calc(50vw - 31vw);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: 11vw;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -686,13 +694,13 @@ nav a:hover {
 
   .mobile-reel {
     position: relative;
-    flex: 0 0 78vw;
+    flex: 0 0 62vw; /* Reduced ~20% */
     aspect-ratio: 9/16;
     scroll-snap-align: center;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
     background: #111;
-    transform: scale(0.88);
+    transform: scale(0.9);
     opacity: 0.6;
     transition: transform 0.4s ease, opacity 0.4s ease;
   }
@@ -704,7 +712,7 @@ nav a:hover {
   }
 
   .mobile-reel.active {
-    transform: scale(1.05);
+    transform: scale(1);
     opacity: 1;
   }
 }
