@@ -334,7 +334,7 @@ nav a:hover {
   align-items: center;
 }
 
-/* Reduced Video Card (20% Smaller) */
+/* Video Card */
 .video-card {
   position: relative;
   width: 48vw;
@@ -416,7 +416,7 @@ nav a:hover {
 
 .reel-card {
   position: relative;
-  width: 240px; /* Reduced ~20% */
+  width: 240px;
   aspect-ratio: 9/16;
   overflow: hidden;
   background: #111;
@@ -650,12 +650,45 @@ nav a:hover {
     letter-spacing: 5px;
   }
 
-  .drag-slider-track {
-    padding: 0 calc(50vw - 31vw); /* Centers 62vw card on mobile */
+  /* Video Showcase Section Height Adjustments */
+  .video-showcase-section {
+    min-height: 75vh;
+    padding: 30px 0;
   }
 
+  /* Full-bleed background video fit on mobile */
+  .video-bg-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Centered padding for wider cards */
+  .drag-slider-track {
+    padding: 0 calc(50vw - 41vw);
+  }
+
+  /* Larger Video Card Size & 16:9 Aspect Ratio */
   .video-card {
-    width: 62vw; /* Reduced ~20% */
+    width: 82vw;
+    max-width: 420px;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+  }
+
+  .card-overlay-title {
+    font-size: 11px;
+    top: 12px;
+    letter-spacing: 1.5px;
   }
 
   .slider-nav-btn,
@@ -694,7 +727,7 @@ nav a:hover {
 
   .mobile-reel {
     position: relative;
-    flex: 0 0 62vw; /* Reduced ~20% */
+    flex: 0 0 62vw;
     aspect-ratio: 9/16;
     scroll-snap-align: center;
     border-radius: 12px;
