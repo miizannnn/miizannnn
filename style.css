@@ -143,12 +143,17 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 20px;
 }
 
-.hero-text h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-  letter-spacing: 10px;
+.hero-logo {
+  width: 80vw;
+  max-width: 550px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.7));
+  user-select: none;
+  pointer-events: none;
 }
 
 .hero-text p {
@@ -645,9 +650,8 @@ nav a:hover {
     aspect-ratio: 4/5;
   }
 
-  .hero-text h1 {
-    font-size: 40px;
-    letter-spacing: 5px;
+  .hero-logo {
+    max-width: 320px;
   }
 
   /* Video Showcase Section Height Adjustments */
