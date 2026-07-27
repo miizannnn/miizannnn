@@ -13,6 +13,35 @@ window.addEventListener("load", () => {
 });
 
 // ==========================
+// MOBILE AUTOPLAY HELPER
+// ==========================
+const playVideoSafely = (video) => {
+  if (!video) return;
+  video.muted = true;
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch((err) => {
+      console.warn("Autoplay deferred or blocked by device settings:", err);
+    });
+  }
+};
+
+// Guarantee all videos on the page attempt playback on load
+window.addEventListener("DOMContentLoaded", () => {
+  const allPageVideos = document.querySelectorAll("video");
+  allPageVideos.forEach((v) => {
+    v.muted = true;
+    v.setAttribute("playsinline", "");
+    // Force aggressive loading on mobile
+    v.preload = "auto";
+    playVideoSafely(v);
+  });
+});
+
+// ==========================
 // ACTIVE NAVIGATION
 // ==========================
 const sections = document.querySelectorAll("section");
@@ -136,6 +165,7 @@ if (slider) {
       bgVideos.forEach((bg) => {
         if (bg.getAttribute('data-vid') === vidId) {
           bg.classList.add('active');
+          playVideoSafely(bg);
         } else {
           bg.classList.remove('active');
         }
@@ -170,7 +200,7 @@ if (slider) {
 
   // Play YouTube Video inside Card on Click
   videoCards.forEach((card) => {
-    card.addEventListener('click', (e) => {
+    card.addEventListener('click', () => {
       if (isDragging) return;
 
       // Reset and stop any active iframe on other cards
@@ -220,7 +250,7 @@ reelCards.forEach((card) => {
   if (playBtn) {
     playBtn.addEventListener("click", () => {
       if (video.paused) {
-        video.play();
+        playVideoSafely(video);
       } else {
         video.pause();
       }
@@ -280,7 +310,7 @@ const reelObserver = new IntersectionObserver((entries) => {
     const soundBtn = card ? card.querySelector(".sound-btn") : null;
 
     if (entry.isIntersecting) {
-      video.play().catch(() => {});
+      playVideoSafely(video);
     } else {
       video.muted = true;
       if (soundBtn) {
@@ -317,6 +347,8 @@ if (window.innerWidth <= 900) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
+        const video = entry.target.querySelector("video");
+        if (video) playVideoSafely(video);
 
         if (!hasAutoScrolledToMiddle) {
           hasAutoScrolledToMiddle = true;
