@@ -18,22 +18,30 @@ body {
 }
 
 /* ==========================
-   TOP CENTER LOGO
+   TOP CENTER LOGO & BG FADE
 ========================== */
-.top-logo {
+.top-logo-container {
   position: absolute;
-  top: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Black gradient background fading down into hero video */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
   z-index: 9997;
   pointer-events: none;
 }
 
-.top-logo img {
-  height: 55px;
+.top-logo-img {
+  height: 16.5px; /* 70% smaller than 55px */
   width: auto;
   display: block;
-  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7));
+  opacity: 1; /* Keeps logo completely sharp and visible */
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.8));
 }
 
 /* ==========================
@@ -651,12 +659,13 @@ nav a:hover {
    MOBILE RESPONSIVE
 ========================== */
 @media (max-width: 900px) {
-  .top-logo {
-    top: 20px;
+  .top-logo-container {
+    padding-top: 14px;
+    padding-bottom: 35px;
   }
 
-  .top-logo img {
-    height: 40px;
+  .top-logo-img {
+    height: 12px;
   }
 
   .sidebar {
