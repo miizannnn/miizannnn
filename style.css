@@ -18,6 +18,25 @@ body {
 }
 
 /* ==========================
+   TOP CENTER LOGO
+========================== */
+.top-logo {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9997;
+  pointer-events: none;
+}
+
+.top-logo img {
+  height: 55px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7));
+}
+
+/* ==========================
    SIDEBAR
 ========================== */
 .sidebar {
@@ -327,7 +346,7 @@ nav a:hover {
 
 .drag-slider-container.active {
   cursor: grabbing;
-  scroll-snap-type: none; /* Smooth drag response during manual drag */
+  scroll-snap-type: none;
 }
 
 /* Dynamic Padding ensures First and Last cards center perfectly */
@@ -350,7 +369,7 @@ nav a:hover {
   background: #111;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
   flex-shrink: 0;
-  scroll-snap-align: center; /* Enforces exact middle position when scrolling */
+  scroll-snap-align: center;
   scroll-snap-stop: always;
   transition: transform 0.4s ease, border-color 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -632,6 +651,14 @@ nav a:hover {
    MOBILE RESPONSIVE
 ========================== */
 @media (max-width: 900px) {
+  .top-logo {
+    top: 20px;
+  }
+
+  .top-logo img {
+    height: 40px;
+  }
+
   .sidebar {
     width: 75%;
   }
