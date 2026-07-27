@@ -17,7 +17,6 @@ window.addEventListener("load", () => {
 // ==========================
 const playVideoSafely = (video) => {
   if (!video) return;
-  // Mobile browsers strictly require muted properties AND attributes
   video.muted = true;
   video.defaultMuted = true;
   video.setAttribute("muted", "");
@@ -25,28 +24,24 @@ const playVideoSafely = (video) => {
   
   const playPromise = video.play();
   if (playPromise !== undefined) {
-    playPromise.catch((err) => {
-      // Handled silently if mobile OS blocks before first touch
+    playPromise.catch(() => {
+      // Silently handled for strict power-saver or mobile restrictions
     });
   }
 };
 
-// Global User Interaction Unlocker for Mobile Safari & Android
 const unlockAutoplay = () => {
   document.querySelectorAll("video").forEach((v) => {
-    // Play hero video, active background video, or visible reels
     if (v.closest(".hero") || v.classList.contains("active") || v.dataset.visible === "true") {
       playVideoSafely(v);
     }
   });
 };
 
-// Listen for any subtle touch or scroll gesture to immediately wake up autoplay
-window.addEventListener("touchstart", unlockAutoplay, { passive: true, once: true });
-window.addEventListener("scroll", unlockAutoplay, { passive: true, once: true });
-window.addEventListener("click", unlockAutoplay, { passive: true, once: true });
+["touchstart", "scroll", "click"].forEach((evt) => {
+  window.addEventListener(evt, unlockAutoplay, { passive: true, once: true });
+});
 
-// Attempt initial load play
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("video").forEach((v) => {
     v.muted = true;
@@ -54,48 +49,46 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   const heroVideo = document.querySelector(".hero video");
-  if (heroVideo) {
-    playVideoSafely(heroVideo);
-  }
+  if (heroVideo) playVideoSafely(heroVideo);
 });
 
 // ==========================
-// ACTIVE NAVIGATION
+// ACTIVE NAVIGATION (Observer)
 // ==========================
 const sections = document.querySelectorAll("section");
-const links = document.querySelectorAll("nav a");
+const navLinks = document.querySelectorAll("nav a");
 
-window.addEventListener("scroll", () => {
-  let current = "";
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        navLinks.forEach((link) => {
+          link.style.opacity = link.getAttribute("href") === `#${id}` ? "1" : ".6";
+        });
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 200;
-    if (window.scrollY >= sectionTop) {
-      current = section.id;
-    }
-  });
-
-  links.forEach((link) => {
-    link.style.opacity = ".6";
-    if (link.getAttribute("href") === "#" + current) {
-      link.style.opacity = "1";
-    }
-  });
-});
+sections.forEach((section) => navObserver.observe(section));
 
 // ==========================
-// IMAGE FADE
+// GALLERY ITEM FADE-IN
 // ==========================
 const items = document.querySelectorAll(".item");
-
-const itemObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, { threshold: .2 });
+const itemObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
 
 items.forEach((item) => {
   item.style.opacity = "0";
@@ -112,7 +105,6 @@ window.addEventListener("load", () => {
   if (hero) {
     hero.style.opacity = "0";
     hero.style.transform = "translateY(30px)";
-
     setTimeout(() => {
       hero.style.transition = "1s ease";
       hero.style.opacity = "1";
@@ -124,51 +116,49 @@ window.addEventListener("load", () => {
 // ==========================
 // VIDEO SHOWCASE SLIDER
 // ==========================
-const slider = document.getElementById('videoDragSlider');
+const slider = document.getElementById("videoDragSlider");
 if (slider) {
   let isDown = false;
   let startX;
   let scrollLeft;
   let isDragging = false;
 
-  slider.addEventListener('mousedown', (e) => {
+  slider.addEventListener("mousedown", (e) => {
     isDown = true;
     isDragging = false;
-    slider.classList.add('active');
+    slider.classList.add("active");
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
   });
 
-  slider.addEventListener('mouseleave', () => {
+  slider.addEventListener("mouseleave", () => {
     isDown = false;
-    slider.classList.remove('active');
+    slider.classList.remove("active");
   });
 
-  slider.addEventListener('mouseup', () => {
+  slider.addEventListener("mouseup", () => {
     isDown = false;
-    slider.classList.remove('active');
+    slider.classList.remove("active");
   });
 
-  slider.addEventListener('mousemove', (e) => {
+  slider.addEventListener("mousemove", (e) => {
     if (!isDown) return;
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * 1.5;
-    if (Math.abs(walk) > 5) {
-      isDragging = true;
-    }
+    if (Math.abs(walk) > 5) isDragging = true;
     slider.scrollLeft = scrollLeft - walk;
   });
 
-  const videoCards = slider.querySelectorAll('.video-card');
-  const bgVideos = document.querySelectorAll('.video-bg');
+  const videoCards = slider.querySelectorAll(".video-card");
+  const bgVideos = document.querySelectorAll(".video-bg");
 
   const updateBackgroundVideo = () => {
-    const sliderCenter = slider.scrollLeft + (slider.clientWidth / 2);
+    const sliderCenter = slider.scrollLeft + slider.clientWidth / 2;
     let closestCard = null;
     let minDistance = Infinity;
 
     videoCards.forEach((card) => {
-      const cardCenter = card.offsetLeft + (card.clientWidth / 2);
+      const cardCenter = card.offsetLeft + card.clientWidth / 2;
       const distance = Math.abs(sliderCenter - cardCenter);
       if (distance < minDistance) {
         minDistance = distance;
@@ -177,61 +167,55 @@ if (slider) {
     });
 
     if (closestCard) {
-      const vidId = closestCard.getAttribute('data-vid');
+      const vidId = closestCard.getAttribute("data-vid");
       bgVideos.forEach((bg) => {
-        if (bg.getAttribute('data-vid') === vidId) {
-          bg.classList.add('active');
+        if (bg.getAttribute("data-vid") === vidId) {
+          bg.classList.add("active");
           playVideoSafely(bg);
         } else {
-          bg.classList.remove('active');
+          bg.classList.remove("active");
           bg.pause();
         }
       });
     }
   };
 
-  slider.addEventListener('scroll', updateBackgroundVideo);
+  slider.addEventListener("scroll", updateBackgroundVideo);
 
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-
-  const getScrollStep = () => {
-    if (videoCards.length > 0) {
-      return videoCards[0].clientWidth + 20;
-    }
-    return 350;
-  };
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const getScrollStep = () => (videoCards.length > 0 ? videoCards[0].clientWidth + 20 : 350);
 
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
     });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: getScrollStep(), behavior: "smooth" });
     });
   }
 
   videoCards.forEach((card) => {
-    card.addEventListener('click', () => {
+    card.addEventListener("click", () => {
       if (isDragging) return;
 
       videoCards.forEach((otherCard) => {
-        if (otherCard !== card && otherCard.classList.contains('playing')) {
-          otherCard.classList.remove('playing');
-          const embed = otherCard.querySelector('.yt-embed-container');
-          if (embed) embed.innerHTML = '';
+        if (otherCard !== card && otherCard.classList.contains("playing")) {
+          otherCard.classList.remove("playing");
+          const embed = otherCard.querySelector(".yt-embed-container");
+          if (embed) embed.innerHTML = "";
         }
       });
 
-      if (!card.classList.contains('playing')) {
-        const ytId = card.getAttribute('data-yt');
-        const embedContainer = card.querySelector('.yt-embed-container');
+      if (!card.classList.contains("playing")) {
+        const ytId = card.getAttribute("data-yt");
+        const embedContainer = card.querySelector(".yt-embed-container");
         if (ytId && embedContainer) {
           embedContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-          card.classList.add('playing');
+          card.classList.add("playing");
         }
       }
     });
@@ -239,7 +223,7 @@ if (slider) {
 }
 
 // ==========================
-// REELS CONTROLS & LAZY OBSERVER
+// REELS CONTROLS & OBSERVER
 // ==========================
 const reelCards = document.querySelectorAll(".reel-card, .mobile-reel");
 let allVideos = [];
@@ -252,7 +236,6 @@ reelCards.forEach((card) => {
   if (!video) return;
 
   allVideos.push(video);
-
   const playBtn = card.querySelector(".play-btn");
   const soundBtn = card.querySelector(".sound-btn");
   const progress = card.querySelector(".progress");
@@ -317,31 +300,30 @@ reelCards.forEach((card) => {
   });
 });
 
-// IntersectionObserver to auto-play ONLY visible videos
-const reelObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const video = entry.target;
-    const card = video.closest(".reel-card, .mobile-reel");
-    const soundBtn = card ? card.querySelector(".sound-btn") : null;
+const reelObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      const card = video.closest(".reel-card, .mobile-reel");
+      const soundBtn = card ? card.querySelector(".sound-btn") : null;
 
-    if (entry.isIntersecting) {
-      video.dataset.visible = "true";
-      playVideoSafely(video);
-    } else {
-      video.dataset.visible = "false";
-      video.pause();
-      video.muted = true;
-      video.setAttribute("muted", "");
-      if (soundBtn) soundBtn.classList.add("muted");
-    }
-  });
-}, { threshold: 0.3 });
+      if (entry.isIntersecting) {
+        video.dataset.visible = "true";
+        playVideoSafely(video);
+      } else {
+        video.dataset.visible = "false";
+        video.pause();
+        video.muted = true;
+        video.setAttribute("muted", "");
+        if (soundBtn) soundBtn.classList.add("muted");
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
 
-allVideos.forEach((video) => {
-  reelObserver.observe(video);
-});
+allVideos.forEach((v) => reelObserver.observe(v));
 
-// Mobile reels center positioning
 if (window.innerWidth <= 900) {
   const mobileReelsContainer = document.querySelector(".mobile-reels");
   const mobileReels = document.querySelectorAll(".mobile-reel");
@@ -349,7 +331,7 @@ if (window.innerWidth <= 900) {
   const scrollToThirdReel = () => {
     if (mobileReels[2] && mobileReelsContainer) {
       const reelThree = mobileReels[2];
-      const scrollPosition = reelThree.offsetLeft - (mobileReelsContainer.clientWidth / 2) + (reelThree.clientWidth / 2);
+      const scrollPosition = reelThree.offsetLeft - mobileReelsContainer.clientWidth / 2 + reelThree.clientWidth / 2;
       mobileReelsContainer.scrollLeft = scrollPosition;
     }
   };
@@ -358,7 +340,7 @@ if (window.innerWidth <= 900) {
 }
 
 // ==========================
-// POPUP GALLERY
+// POPUP GALLERY (Global scope fix)
 // ==========================
 const galleries = {
   laferrari: ["images/cars/la-ferrari/project.webp"],
@@ -372,7 +354,7 @@ const galleries = {
   turbos: ["images/cars/porsche-turbo-s/project.webp"]
 };
 
-function openGallery(car) {
+window.openGallery = function (car) {
   const popup = document.getElementById("popup");
   const container = document.getElementById("popup-images");
 
@@ -388,15 +370,15 @@ function openGallery(car) {
 
   popup.style.display = "block";
   document.body.style.overflow = "hidden";
-}
+};
 
-function closeGallery() {
+window.closeGallery = function () {
   document.getElementById("popup").style.display = "none";
   document.body.style.overflow = "auto";
-}
+};
 
 // ==========================
-// SIDEBAR TOGGLE
+// SIDEBAR TOGGLE & AUTO-CLOSE
 // ==========================
 const sidebarToggle = document.getElementById("sidebarToggle");
 const sidebar = document.querySelector(".sidebar");
@@ -416,4 +398,18 @@ document.querySelectorAll("nav a").forEach((link) => {
       content.classList.remove("open");
     }
   });
+});
+
+document.addEventListener("click", (e) => {
+  if (
+    window.innerWidth <= 900 &&
+    sidebar &&
+    !sidebar.classList.contains("closed") &&
+    !sidebar.contains(e.target) &&
+    sidebarToggle &&
+    !sidebarToggle.contains(e.target)
+  ) {
+    sidebar.classList.add("closed");
+    if (content) content.classList.remove("open");
+  }
 });
