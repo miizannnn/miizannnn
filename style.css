@@ -175,7 +175,6 @@ nav a:hover {
   padding: 0 20px;
 }
 
-/* BIGGER TAGLINE LOGO */
 .hero-logo {
   width: 90vw;
   max-width: 800px;
@@ -187,26 +186,15 @@ nav a:hover {
   margin: 0 auto;
 }
 
-/* HERO SUBTITLE PARAGRAPH */
 .hero-subtitle {
   margin-top: 12px;
-  font-size: 9px; /* Extra small desktop font size */
+  font-size: 9px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
   max-width: 420px;
   line-height: 1.4;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-}
-
-/* MOBILE ADJUSTMENT */
-@media (max-width: 900px) {
-  .hero-subtitle {
-    font-size: 7.5px; /* Extra small mobile font size */
-    letter-spacing: 1px;
-    margin-top: 8px;
-    max-width: 75vw;
-  }
 }
 
 /* ==========================
@@ -474,7 +462,7 @@ nav a:hover {
 }
 
 /* ==========================
-   REEL CONTROLS
+   REEL CONTROLS (SHARED)
 ========================== */
 .reel-controls {
   position: absolute;
@@ -487,8 +475,7 @@ nav a:hover {
   z-index: 30;
 }
 
-.reel-card:hover .reel-controls,
-.mobile-reel.active .reel-controls {
+.reel-card:hover .reel-controls {
   opacity: 1;
 }
 
@@ -547,7 +534,7 @@ nav a:hover {
 }
 
 /* ==========================
-   PROGRESS BAR
+   PROGRESS BAR (SHARED)
 ========================== */
 .progress-bar {
   position: absolute;
@@ -567,8 +554,7 @@ nav a:hover {
   background: white;
 }
 
-.reel-card:hover .progress-bar,
-.mobile-reel.active .progress-bar {
+.reel-card:hover .progress-bar {
   opacity: 1;
 }
 
@@ -803,6 +789,13 @@ nav a:hover {
   .mobile-reel.active {
     transform: scale(1);
     opacity: 1;
+  }
+
+  /* FORCE REEL CONTROLS AND PROGRESS BAR VISIBILITY ON MOBILE */
+  .mobile-reel .reel-controls,
+  .mobile-reel .progress-bar {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
 
