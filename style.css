@@ -782,3 +782,21 @@ nav a:hover {
     opacity: 1;
   }
 }
+/* ==========================
+   FOOTER
+========================== */
+.site-footer {
+  width: 100%;
+  padding: 40px 20px;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
