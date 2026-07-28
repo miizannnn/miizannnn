@@ -21,7 +21,7 @@ const playVideoSafely = (video) => {
   video.defaultMuted = true;
   video.setAttribute("muted", "");
   video.setAttribute("playsinline", "");
-  
+
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     v.muted = true;
     v.setAttribute("muted", "");
   });
-  
+
   const heroVideo = document.querySelector(".hero video");
   if (heroVideo) playVideoSafely(heroVideo);
 });
@@ -245,7 +245,8 @@ reelCards.forEach((card) => {
   if (soundBtn) soundBtn.classList.add("muted");
 
   if (playBtn) {
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (video.paused) {
         playVideoSafely(video);
       } else {
@@ -263,7 +264,8 @@ reelCards.forEach((card) => {
   });
 
   if (soundBtn) {
-    soundBtn.addEventListener("click", () => {
+    soundBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       const isCurrentlyMuted = video.muted;
 
       if (isCurrentlyMuted) {
@@ -324,19 +326,42 @@ const reelObserver = new IntersectionObserver(
 
 allVideos.forEach((v) => reelObserver.observe(v));
 
+// ==========================
+// MOBILE REELS CENTER ACTIVE OBSERVER
+// ==========================
 if (window.innerWidth <= 900) {
   const mobileReelsContainer = document.querySelector(".mobile-reels");
   const mobileReels = document.querySelectorAll(".mobile-reel");
 
-  const scrollToThirdReel = () => {
-    if (mobileReels[2] && mobileReelsContainer) {
-      const reelThree = mobileReels[2];
-      const scrollPosition = reelThree.offsetLeft - mobileReelsContainer.clientWidth / 2 + reelThree.clientWidth / 2;
-      mobileReelsContainer.scrollLeft = scrollPosition;
-    }
-  };
+  if (mobileReelsContainer && mobileReels.length > 0) {
+    const mobileCenterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            mobileReels.forEach((reel) => reel.classList.remove("active"));
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      {
+        root: mobileReelsContainer,
+        threshold: 0.6
+      }
+    );
 
-  window.addEventListener("load", scrollToThirdReel);
+    mobileReels.forEach((reel) => mobileCenterObserver.observe(reel));
+
+    const scrollToThirdReel = () => {
+      if (mobileReels[2] && mobileReelsContainer) {
+        const reelThree = mobileReels[2];
+        const scrollPosition =
+          reelThree.offsetLeft - mobileReelsContainer.clientWidth / 2 + reelThree.clientWidth / 2;
+        mobileReelsContainer.scrollLeft = scrollPosition;
+      }
+    };
+
+    window.addEventListener("load", scrollToThirdReel);
+  }
 }
 
 // ==========================
